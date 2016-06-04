@@ -1,0 +1,43 @@
+--- a/target/linux/ar71xx/files/drivers/net/ethernet/atheros/ag71xx/ag71xx.h
++++ b/target/linux/ar71xx/files/drivers/net/ethernet/atheros/ag71xx/ag71xx.h
+@@ -146,20 +143,24 @@ struct ag71xx_debug {
+ };
+ 
+ struct ag71xx {
+-	void __iomem		*mac_base;
+-
+ 	spinlock_t		lock;
+ 	struct platform_device	*pdev;
+ 	struct net_device	*dev;
+ 	struct napi_struct	napi;
+ 	u32			msg_enable;
+ 
++	struct ag71xx_ring	rx_ring ____cacheline_aligned;
++	struct ag71xx_ring	tx_ring ____cacheline_aligned;
++
++	void __iomem		*mac_base;
++	
++	unsigned int		max_frame_len;
++	unsigned int		rx_buf_size;
++	unsigned int		desc_pktlen_mask;
++	
+ 	struct ag71xx_desc	*stop_desc;
+ 	dma_addr_t		stop_desc_dma;
+ 
+-	struct ag71xx_ring	rx_ring;
+-	struct ag71xx_ring	tx_ring;
+-
+ 	struct mii_bus		*mii_bus;
+ 	struct phy_device	*phy_dev;
+ 	void			*phy_priv;
+@@ -168,10 +169,6 @@ struct ag71xx {
+ 	unsigned int		speed;
+ 	int			duplex;
+ 
+-	unsigned int		max_frame_len;
+-	unsigned int		desc_pktlen_mask;
+-	unsigned int		rx_buf_size;
+-
+ 	struct work_struct	restart_work;
+ 	struct delayed_work	link_work;
+ 	struct timer_list	oom_timer;

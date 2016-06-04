@@ -1,0 +1,343 @@
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/libs/libubox/patches/01-CMake.patch	2015-11-27 20:23:50.369092042 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-11-24 20:24:07.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-27 20:19:41.179470886 +0800
++@@ -3,7 +3,7 @@ INCLUDE(CheckLibraryExists)
++ INCLUDE(CheckFunctionExists)
++ 
++ PROJECT(ubox C)
++-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -Wmissing-declarations)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
++ 
++ OPTION(BUILD_LUA "build Lua plugin" ON)
++ 
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/libs/libubox/patches/02-Cmake-lua.patch	2015-11-27 20:23:26.462032973 +0800
+@@ -0,0 +1,11 @@
++--- a/lua/CMakeLists.txt	2014-11-24 20:24:07.000000000 +0800
+++++ b/lua/CMakeLists.txt	2015-11-27 20:22:06.817835425 +0800
++@@ -15,7 +15,7 @@ IF(NOT LUA_CFLAGS)
++ 	ENDIF()
++ ENDIF()
++ 
++-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -I.. ${LUA_CFLAGS})
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -I.. ${LUA_CFLAGS})
++ LINK_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/..)
++ 
++ IF(APPLE)
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/libs/ustream-ssl/patches/01-Cmake.patch	2015-11-27 21:06:51.006781529 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-11-15 16:30:54.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-27 21:01:56.248238207 +0800
++@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.6)
++ INCLUDE(CheckIncludeFiles)
++ 
++ PROJECT(ustream-ssl C)
++-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -Wmissing-declarations)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
++ 
++ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
++ 
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/network/config/firewall/patches/01-Cmake.patch	2015-11-27 21:12:21.843409979 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-11-15 16:49:45.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-27 21:11:12.180276155 +0800
++@@ -1,7 +1,7 @@
++ cmake_minimum_required(VERSION 2.6)
++ 
++ PROJECT(firewall3 C)
++-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -Wmissing-declarations)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
++ 
++ SET(iptc_libs   ip4tc)
++ 
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/network/config/netifd/patches/01-CMake.patch	2015-11-27 20:47:06.258422677 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-11-24 20:24:07.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-27 20:19:41.179470886 +0800
++@@ -1,7 +1,7 @@
++ cmake_minimum_required(VERSION 2.6)
++ 
++ PROJECT(netifd C)
++-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -Wmissing-declarations)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
++ 
++ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
++ 
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/network/services/relayd/patches/01-CMake.patch	2015-11-27 21:14:19.239637174 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-11-15 16:51:34.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-27 21:13:37.032555255 +0800
++@@ -1,7 +1,7 @@
++ cmake_minimum_required(VERSION 2.8)
++ 
++ PROJECT(relayd C)
++-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99)
++ 
++ IF(APPLE)
++   INCLUDE_DIRECTORIES(/opt/local/include)
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/network/services/uhttpd/patches/01-CMake.patch	2015-11-27 21:39:49.392938483 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-11-15 16:49:31.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-27 21:08:25.966960023 +0800
++@@ -5,7 +5,7 @@ PROJECT(uhttpd C)
++ INCLUDE (CheckFunctionExists)
++ 
++ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
++-ADD_DEFINITIONS(-D_FILE_OFFSET_BITS=64 -Os -Wall -Werror -Wmissing-declarations --std=gnu99 -g3)
+++ADD_DEFINITIONS(-D_FILE_OFFSET_BITS=64 -Wall -Werror -Wmissing-declarations --std=gnu99)
++ 
++ OPTION(TLS_SUPPORT "TLS support" ON)
++ OPTION(LUA_SUPPORT "Lua support" ON)
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/system/fstools/patches/01-Cmake.patch	2015-11-27 21:26:13.449058652 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2015-02-26 19:35:58.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-27 21:25:41.468993741 +0800
++@@ -1,7 +1,7 @@
++ cmake_minimum_required(VERSION 2.6)
++ 
++ PROJECT(fs-tools C)
++-ADD_DEFINITIONS(-Os -ggdb -Wall -Werror --std=gnu99 -Wmissing-declarations)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
++ 
++ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
++ 
+--- /dev/null	2015-12-19 10:32:16.723017304 +0800
++++ ./package/system/procd/patches/CMakeList.patch	2015-12-19 18:59:13.723715668 +0800
+@@ -0,0 +1,22 @@
++--- a/upgraded/CMakeLists.txt
+++++ b/upgraded/CMakeLists.txt
++@@ -1,7 +1,7 @@
++ cmake_minimum_required(VERSION 2.6)
++ 
++ PROJECT(upgraded C)
++-ADD_DEFINITIONS(-Os -ggdb -Wall -Werror --std=gnu99 -Wmissing-declarations)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
++ set(CMAKE_EXE_LINKER_FLAGS "-static -fPIC")
++ set(CMAKE_FIND_LIBRARY_SUFFIXES .a)
++ set(CMAKE_EXE_LINK_DYNAMIC_C_FLAGS)
++--- a/CMakeLists.txt
+++++ b/CMakeLists.txt
++@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.6)
++ 
++ PROJECT(procd C)
++ INCLUDE(GNUInstallDirs)
++-ADD_DEFINITIONS(-Os -ggdb -Wall -Werror --std=gnu99 -Wmissing-declarations)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
++ 
++ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
++ 
+
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/system/ubox/patches/01-CMake.patch	2015-11-27 20:50:58.147962605 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-11-24 20:24:07.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-27 20:19:41.179470886 +0800
++@@ -1,7 +1,7 @@
++ cmake_minimum_required(VERSION 2.6)
++ 
++ PROJECT(ubox C)
++-ADD_DEFINITIONS(-Os -ggdb -Wall -Werror --std=gnu99 -Wmissing-declarations)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
++ 
++ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
++ 
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/system/ubus/patches/01-CMake.patch	2015-11-27 20:33:47.792540522 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-11-24 20:24:07.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-27 20:19:41.179470886 +0800
++@@ -1,7 +1,7 @@
++ cmake_minimum_required(VERSION 2.6)
++ 
++ PROJECT(ubus C)
++-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -Wmissing-declarations)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
++ 
++ OPTION(BUILD_LUA "build Lua plugin" ON)
++ OPTION(BUILD_EXAMPLES "build examples" ON)
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/system/ubus/patches/01-CMake-lua.patch	2015-11-27 20:38:22.313192718 +0800
+@@ -0,0 +1,11 @@
++--- a/lua/CMakeLists.txt	2014-11-15 16:25:57.000000000 +0800
+++++ b/lua/CMakeLists.txt	2015-11-27 20:37:15.836035369 +0800
++@@ -15,7 +15,7 @@ IF(NOT LUA_CFLAGS)
++ 	ENDIF()
++ ENDIF()
++ 
++-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -I.. ${LUA_CFLAGS})
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -I.. ${LUA_CFLAGS})
++ INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/..)
++ LINK_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/..)
++ 
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/system/uci/patches/01-CMake.patch	2015-11-27 20:43:39.230938583 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-11-24 20:24:07.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-27 20:19:41.179470886 +0800
++@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.6)
++ PROJECT(uci C)
++ 
++ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
++-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -I. -DUCI_PREFIX="${CMAKE_INSTALL_PREFIX}")
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -I. -DUCI_PREFIX="${CMAKE_INSTALL_PREFIX}")
++ 
++ OPTION(UCI_DEBUG "debugging support" OFF)
++ OPTION(UCI_DEBUG_TYPECAST "typecast debugging support" OFF)
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/system/uci/patches/02-Cmake-lua.patch	2015-11-27 20:43:18.530890056 +0800
+@@ -0,0 +1,11 @@
++--- a/lua/CMakeLists.txt	2014-11-24 20:24:07.000000000 +0800
+++++ b/lua/CMakeLists.txt	2015-11-27 20:22:06.817835425 +0800
++@@ -15,7 +15,7 @@ IF(NOT LUA_CFLAGS)
++ 	ENDIF()
++ ENDIF()
++ 
++-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -I.. ${LUA_CFLAGS})
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -I.. ${LUA_CFLAGS})
++ LINK_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/..)
++ 
++ IF(APPLE)
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/utils/jsonfilter/patches/01-Cmake.patch	2015-11-27 21:02:44.005325070 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-11-15 16:30:54.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-27 21:01:56.248238207 +0800
++@@ -1,7 +1,7 @@
++ cmake_minimum_required(VERSION 2.6)
++ 
++ PROJECT(jsonpath C)
++-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -Wmissing-declarations -Wno-error=unused-variable -ffunction-sections -D_GNU_SOURCE)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations -Wno-error=unused-variable -ffunction-sections -D_GNU_SOURCE)
++ 
++ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "-Wl,--gc-sections")
++ 
+--- /dev/null	2015-11-26 23:22:57.302221138 +0800
++++ ./package/utils/usbmode/patches/01-Cmake.patch	2015-11-27 21:28:26.268329359 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-11-15 17:26:56.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-27 21:27:22.483199136 +0800
++@@ -1,7 +1,7 @@
++ cmake_minimum_required(VERSION 2.6)
++ 
++ PROJECT(usbmode C)
++-ADD_DEFINITIONS(-Os -ggdb -Wall -Werror --std=gnu99 -Wmissing-declarations)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
++ 
++ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
++ 
+--- /dev/null	2015-11-28 01:15:15.066201681 +0800
++++ ./package/network/ipv6/odhcp6c/patches/CMakeLists.patch	2015-11-28 13:57:39.705095939 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-12-10 19:30:34.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-28 13:56:53.223065929 +0800
++@@ -4,7 +4,7 @@ cmake_policy(SET CMP0015 NEW)
++ # Project Definition
++ project(odhcp6c C)
++ set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
++-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -std=c99")
+++set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
++ add_definitions(-D_GNU_SOURCE -Wall -Werror -Wextra -pedantic)
++ 
++ if(${EXT_PREFIX_CLASS})
+--- /dev/null	2015-11-28 01:15:15.066201681 +0800
++++ ./package/network/services/odhcpd/patches/CMakeLists.patch	2015-11-28 13:59:09.333161210 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-11-15 17:25:12.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-28 13:58:51.509147565 +0800
++@@ -5,7 +5,7 @@ cmake_policy(SET CMP0015 NEW)
++ project(odhcpd C)
++ 
++ set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
++-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -std=c99")
+++set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
++ 
++ 
++ add_definitions(-D_GNU_SOURCE -Wall -Werror -Wextra)
+--- /dev/null	2015-12-19 10:32:16.723017304 +0800
++++ ./package/system/usign/patches/CMakeList.patch	2015-12-19 19:07:14.566198140 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt
+++++ b/CMakeLists.txt
++@@ -1,7 +1,7 @@
++ cmake_minimum_required(VERSION 2.8)
++ 
++ PROJECT(usign C)
++-ADD_DEFINITIONS(-O2 -Wall -Werror --std=gnu99 -g3 -Wmissing-declarations)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
++ 
++ SET(SOURCES ed25519.c edsign.c f25519.c fprime.c sha512.c main.c)
++ 
+--- /dev/null	2015-12-19 10:32:16.723017304 +0800
++++ ./package/system/rpcd/patches/CMakeList.patch	2015-12-19 19:04:53.578051908 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt
+++++ b/CMakeLists.txt
++@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.6)
++ INCLUDE(CheckFunctionExists)
++ 
++ PROJECT(rpcd C)
++-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -Wmissing-declarations)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
++ INCLUDE_DIRECTORIES(include)
++ 
++ OPTION(FILE_SUPPORT "File plugin support" ON)
+diff --git a/./package/network/utils/uqmi/patches/01-CMake.patch b/./package/network/utils/uqmi/patches/01-CMake.patch
+new file mode 100644
+index 0000000..fff8ced
+--- /dev/null
++++ b/./package/network/utils/uqmi/patches/01-CMake.patch
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-11-15 17:25:19.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-27 21:23:16.921701679 +0800
++@@ -1,7 +1,7 @@
++ cmake_minimum_required(VERSION 2.6)
++ 
++ PROJECT(uqmi C)
++-ADD_DEFINITIONS(-Os -ggdb -Wall -Werror --std=gnu99 -Wmissing-declarations -Wno-enum-conversion)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations -Wno-enum-conversion)
++ 
++ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
++ 
+diff --git a/./package/network/utils/umbim/patches/CMakeList.patch b/./package/network/utils/umbim/patches/CMakeList.patch
+new file mode 100644
+index 0000000..f14e252
+--- /dev/null
++++ b/./package/network/utils/umbim/patches/CMakeList.patch
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2014-11-15 17:25:19.000000000 +0800
+++++ b/CMakeLists.txt	2015-11-27 21:23:16.921701679 +0800
++@@ -1,7 +1,7 @@
++ cmake_minimum_required(VERSION 2.6)
++ 
++ PROJECT(umbim C)
++-ADD_DEFINITIONS(-Os -ggdb -Wall -Werror --std=gnu99 -Wmissing-declarations)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
++ 
++ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
++ 
+diff --git a/./package/libs/uclient/patches/CMakeList.patch b/./package/libs/uclient/patches/CMakeList.patch
+new file mode 100644
+index 0000000..d1474c0
+--- /dev/null
++++ b/./package/libs/uclient/patches/CMakeList.patch
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt
+++++ b/CMakeLists.txt
++@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.6)
++ INCLUDE(CheckIncludeFiles)
++ 
++ PROJECT(uclient C)
++-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -Wmissing-declarations)
+++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
++ 
++ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
++ 

@@ -1,0 +1,142 @@
+--- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_diagnostics.htm	2014-10-06 20:57:51.000000000 +0800
++++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_diagnostics.htm	2014-10-06 21:03:45.339237584 +0800
+@@ -92,12 +92,6 @@
+ </div>
+ 
+ <style type="text/css">
+-  .container {  /* container for entire page. fixes bootstrap theme's ridiculously small page width */
+-	max-width: none;
+-	margin-left: 30px;
+-	padding-right: 30px;
+-	width: auto;
+-  }
+   #mwan_diagnostics {
+ 	background-color: #FFFFFF;
+ 	border: 1px dotted #555555;
+--- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_hotplugscript.htm	2014-10-06 20:57:51.000000000 +0800
++++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_hotplugscript.htm	2014-10-06 21:04:06.917435722 +0800
+@@ -7,12 +7,6 @@
+ </ul>
+ 
+ <style type="text/css">
+-  .container {	/* container for entire page. fixes bootstrap theme's ridiculously small page width */
+-	max-width: none;
+-	margin: 0px 0px 0px 30px;
+-	padding-right: 30px;
+-	width: auto;
+-  }
+   .cbi-section-node {
+ 	margin-top: 20px;
+   }
+--- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_mwanconfig.htm	2014-10-06 20:57:51.000000000 +0800
++++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_mwanconfig.htm	2014-10-06 21:04:39.828738048 +0800
+@@ -7,12 +7,6 @@
+ </ul>
+ 
+ <style type="text/css">
+-  .container {	/* container for entire page. fixes bootstrap theme's ridiculously small page width */
+-	max-width: none;
+-	margin: 0px 0px 0px 30px;
+-	padding-right: 30px;
+-	width: auto;
+-  }
+   .cbi-section-node {
+ 	margin-top: 20px;
+   }
+--- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_networkconfig.htm	2014-10-06 20:57:51.000000000 +0800
++++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_networkconfig.htm	2014-10-06 21:05:25.279155805 +0800
+@@ -7,12 +7,6 @@
+ </ul>
+ 
+ <style type="text/css">
+-  .container {	/* container for entire page. fixes bootstrap theme's ridiculously small page width */
+-	max-width: none;
+-	margin: 0px 0px 0px 30px;
+-	padding-right: 30px;
+-	width: auto;
+-  }
+   .cbi-section-node {
+ 	margin-top: 20px;
+   }
+--- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_troubleshooting.htm	2014-10-06 20:57:51.000000000 +0800
++++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_troubleshooting.htm	2014-10-06 21:05:47.253357883 +0800
+@@ -48,12 +48,6 @@
+ </div>
+ 
+ <style type="text/css">
+-  .container {	/* container for entire page. fixes bootstrap theme's ridiculously small page width */
+-	max-width: none;
+-	margin-left: 30px;
+-	padding-right: 30px;
+-	width: auto;
+-  }
+   #troubleshoot {
+ 	background-color: #FFFFFF;
+ 	border: 1px dotted #555555;
+--- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/config_css.htm	2014-10-06 20:57:51.000000000 +0800
++++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/config_css.htm	2014-10-06 21:07:03.039055321 +0800
+@@ -1,12 +1,6 @@
+ <style type="text/css">
+-  .container {	/* container for entire page. fixes bootstrap theme's ridiculously small page width */
+-	max-width: none;
+-	margin-left: 30px;
+-	padding-right: 30px;
+-	width: auto;
+-  }
+   table td {	/* cells showing the configuration values */
+-	padding: 0px;
++	padding: 3px;
+ 	text-align: center;
+ 	vertical-align: middle;
+   }
+@@ -16,7 +10,7 @@
+ 	vertical-align: middle;
+   }
+   table tbody th {	/* column for configuration section name */
+-	padding: 0px;
++	padding: 3px;
+ 	vertical-align: middle;
+   }
+   .cbi-section-node table div {	/* rows */
+--- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/openwrt_overview_status.htm	2014-10-06 20:57:51.000000000 +0800
++++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/openwrt_overview_status.htm	2014-10-06 21:07:57.304555187 +0800
+@@ -50,9 +50,6 @@
+ </fieldset>
+ 
+ <style type="text/css">
+-  .container {	/* container for entire page. fixes bootstrap theme's ridiculously small page width */
+-	max-width: 1044px;
+-  }
+   #interface_field {
+ 	padding: 12px 20px 20px 20px;
+   }
+--- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/overview_detailed.htm	2014-10-06 20:57:51.000000000 +0800
++++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/overview_detailed.htm	2014-10-06 21:08:25.391814065 +0800
+@@ -31,12 +31,6 @@
+ </div>
+ 
+ <style type="text/css">
+-  .container {	/* container for entire page. fixes bootstrap theme's ridiculously small page width */
+-	max-width: none;
+-	margin-left: 30px;
+-	padding-right: 30px;
+-	width: auto;
+-  }
+   #mwan_detail_status {
+ 	border: 1px dotted #555555;
+ 	background-color: #FFFFFF;
+--- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/overview_interface.htm	2014-10-06 20:57:51.000000000 +0800
++++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/overview_interface.htm	2014-10-06 21:08:48.682028809 +0800
+@@ -75,12 +75,6 @@
+ </div>
+ 
+ <style type="text/css">
+-  .container {	/* container for entire page. fixes bootstrap theme's ridiculously small page width */
+-	max-width: none;
+-	margin-left: 30px;
+-	padding-right: 30px;
+-	width: auto;
+-  }
+   #mwan_interface_status {
+ 	background-color: #FFFFFF;
+ 	border: 1px dotted #555555;

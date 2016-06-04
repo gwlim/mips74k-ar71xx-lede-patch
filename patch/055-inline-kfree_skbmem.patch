@@ -1,0 +1,17 @@
+diff --git a/./target/linux/generic/patches-4.4/999-inline-kfree_skbmem.patch b/./target/linux/generic/patches-4.4/999-inline-kfree_skbmem.patch
+new file mode 100644
+index 0000000..b269055
+--- /dev/null
++++ b/./target/linux/generic/patches-4.4/999-inline-kfree_skbmem.patch
+@@ -0,0 +1,11 @@
++--- a/net/core/skbuff.c
+++++ b/net/core/skbuff.c
++@@ -622,7 +622,7 @@ static void skb_release_data(struct sk_b
++ /*
++  *	Free an skbuff by memory without cleaning the state.
++  */
++-static void kfree_skbmem(struct sk_buff *skb)
+++static inline void kfree_skbmem(struct sk_buff *skb)
++ {
++ 	struct sk_buff_fclones *fclones;
++ 

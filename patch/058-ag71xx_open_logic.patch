@@ -1,0 +1,35 @@
+--- ./target/linux/ar71xx/files/drivers/net/ethernet/atheros/ag71xx/ag71xx_main.c
++++ ./target/linux/ar71xx/files/drivers/net/ethernet/atheros/ag71xx/ag71xx_main.c
+@@ -634,7 +634,6 @@ static int ag71xx_open(struct net_device
+ {
+ 	struct ag71xx *ag = netdev_priv(dev);
+ 	unsigned int max_frame_len;
+-	int ret;
+ 
+ 	max_frame_len = ag71xx_max_frame_len(dev->mtu);
+ 	ag->rx_buf_size = max_frame_len + NET_SKB_PAD + NET_IP_ALIGN;
+@@ -690,9 +690,11 @@ static int ag71xx_open(struct net_device
+ 	ag71xx_wr(ag, AG71XX_REG_MAC_MFL, max_frame_len);
+ 	ag71xx_hw_set_macaddr(ag, dev->dev_addr);
+ 
+-	ret = ag71xx_hw_enable(ag);
+-	if (ret)
+-		goto err;
++	if (ag71xx_hw_enable(ag))
++	{
++		ag71xx_rings_cleanup(ag);
++		return ag71xx_hw_enable(ag);
++	}
+ 
+ 	ag71xx_phy_start(ag);
+ 
+@@ -660,9 +661,6 @@ static int ag71xx_open(struct net_device
+ 
+ 	return 0;
+ 
+-err:
+-	ag71xx_rings_cleanup(ag);
+-	return ret;
+ }
+ 
+ static int ag71xx_stop(struct net_device *dev)

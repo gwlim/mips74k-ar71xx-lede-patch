@@ -1,0 +1,23 @@
+--- a/feeds/luci/modules/luci-base/luasrc/view/sysauth.htm
++++ b/feeds/luci/modules/luci-base/luasrc/view/sysauth.htm
+@@ -20,7 +20,7 @@
+ 			<div class="cbi-value">
+ 				<label class="cbi-value-title"><%:Username%></label>
+ 				<div class="cbi-value-field">
+-					<input class="cbi-input-user" type="text" name="luci_username" value="<%=duser%>" />
++					<input class="cbi-input-user" type="text" name="luci_username" />
+ 				</div>
+ 			</div>
+ 			<div class="cbi-value cbi-value-last">
+@@ -37,11 +37,6 @@
+ 		<input type="reset" value="<%:Reset%>" class="cbi-button cbi-button-reset" />
+ 	</div>
+ </form>
+-<script type="text/javascript">//<![CDATA[
+-	var input = document.getElementsByName('luci_password')[0];
+-	if (input)
+-		input.focus();
+-//]]></script>
+ 
+ <%
+ local uci  = require "luci.model.uci".cursor()

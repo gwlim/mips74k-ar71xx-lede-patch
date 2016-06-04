@@ -1,0 +1,17 @@
+diff --git a/./target/linux/generic/patches-4.4/968-sqm-too-many-events.patch b/./target/linux/generic/patches-4.4/968-sqm-too-many-events.patch
+new file mode 100644
+index 0000000..ae0cd25
+--- /dev/null
++++ b/./target/linux/generic/patches-4.4/968-sqm-too-many-events.patch
+@@ -0,0 +1,11 @@
++--- a/net/sched/sch_htb.c
+++++ b/net/sched/sch_htb.c
++@@ -693,7 +693,7 @@ static s64 htb_do_events(struct htb_sche
++ 	 * 1 to simplify things when jiffy is going to be incremented
++ 	 * too soon
++ 	 */
++-	unsigned long stop_at = start + 2;
+++	unsigned long stop_at = start + 4;
++ 	struct rb_root *wait_pq = &q->hlevel[level].wait_pq;
++ 
++ 	while (time_before(jiffies, stop_at)) {

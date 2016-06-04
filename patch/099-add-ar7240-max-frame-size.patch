@@ -1,0 +1,47 @@
+--- a/target/linux/ar71xx/files/drivers/net/ethernet/atheros/ag71xx/ag71xx_ar7240.c
++++ b/target/linux/ar71xx/files/drivers/net/ethernet/atheros/ag71xx/ag71xx_ar7240.c
+@@ -880,6 +880,30 @@ ar7240_get_vlan(struct switch_dev *dev,
+ 	return 0;
+ }
+ 
++static int
++ar7240_set_max_frame_size(struct switch_dev *dev, const struct switch_attr *attr,
++		struct switch_val *val)
++{
++	struct ar7240sw *as = sw_to_ar7240(dev);
++	struct mii_bus *mii = as->mii_bus;
++	ar7240sw_reg_rmw(mii, AR7240_REG_GLOBAL_CTRL, AR7240_GLOBAL_CTRL_MTU_M,
++			val->value.i + 8 + 2);
++	return 0;
++}
++
++static int
++ar7240_get_max_frame_size(struct switch_dev *dev, const struct switch_attr *attr,
++		struct switch_val *val)
++{
++	u32 v =0;
++	struct ar7240sw *as = sw_to_ar7240(dev);
++	struct mii_bus *mii = as->mii_bus;
++	v = ar7240sw_reg_read(mii, AR7240_REG_GLOBAL_CTRL);
++	v &= AR7240_GLOBAL_CTRL_MTU_M;
++	val->value.i = v;
++	return 0;
++}
++
+ static void
+ ar7240_vtu_op(struct ar7240sw *as, u32 op, u32 val)
+ {
+@@ -1021,6 +1045,13 @@ static struct switch_attr ar7240_globals
+ 		.set = ar7240_set_vlan,
+ 		.get = ar7240_get_vlan,
+ 		.max = 1
++	},{
++		.type = SWITCH_TYPE_INT,
++		.name = "max_frame_size",
++		.description = "Max frame size can be received and transmitted by mac",
++		.set = ar7240_set_max_frame_size,
++		.get = ar7240_get_max_frame_size,
++		.max = 9018
+ 	},
+ };
+ 
