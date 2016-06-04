@@ -13,21 +13,21 @@ How to use
 
 * Install all the development packages required for LEDE BuildRoot
 * Install Java Runtime
-* Clone the Designated Driver Repository
+* Clone the LEDE Repository
 
-    git clone git://git.openwrt.org/openwrt.git --depth 1
+    git clone https://github.com/gwlim/mips24k-lede-patch.git --depth 1
 
-Clone this Repository and copy into the OpenWRT repository
+Clone this Repository and copy into the LEDE repository
 
-    git clone https://github.com/gwlim/mips24k-designated-driver-patch.git temp --depth 1; mv temp/* openwrt/; rm -rf temp
+    git clone https://github.com/gwlim/mips24k-lede-patch.git temp --depth 1; mv temp/* lede/; rm -rf temp
 
 Change directory into the LEDE Repository
 
-    cd openwrt
+    cd lede
 
 Run the script
 
-./patch_openwrt.sh
+./patch_LEDE.sh
 
 Make Menuconfig and select the Target Profile TP-LINK TL-WR1043ND (all the packages and config is inside except build target
 
