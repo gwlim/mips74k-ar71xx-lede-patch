@@ -15,7 +15,7 @@ How to use
 * Install Java Runtime
 * Clone the LEDE Repository
 
-    git clone https://github.com/lede-project/source.git --depth 1
+    git clone https://github.com/lede-project/source.git lede --depth 1
 
 Clone this Repository and copy into the LEDE repository
 
