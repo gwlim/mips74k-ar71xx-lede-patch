@@ -1,0 +1,31 @@
+--- a/target/linux/ar71xx/files/drivers/net/ethernet/atheros/ag71xx/ag71xx_main.c
++++ b/target/linux/ar71xx/files/drivers/net/ethernet/atheros/ag71xx/ag71xx_main.c
+@@ -114,26 +114,21 @@ static void ag71xx_ring_free(struct ag71
+ static int ag71xx_ring_alloc(struct ag71xx_ring *ring)
+ {
+ 	int ring_size = BIT(ring->order);
+-	int err;
+ 
+ 	ring->descs_cpu = dma_alloc_coherent(NULL, ring_size * AG71XX_DESC_SIZE,
+ 					     &ring->descs_dma, GFP_ATOMIC);
+ 	if (!ring->descs_cpu) {
+-		err = -ENOMEM;
+-		goto err;
++		return -ENOMEM;
+ 	}
+ 
+ 
+ 	ring->buf = kzalloc(ring_size * sizeof(*ring->buf), GFP_KERNEL);
+ 	if (!ring->buf) {
+-		err = -ENOMEM;
+-		goto err;
++		return -ENOMEM;
+ 	}
+ 
+ 	return 0;
+ 
+-err:
+-	return err;
+ }
+ 
+ static void ag71xx_ring_tx_clean(struct ag71xx *ag)
