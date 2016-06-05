@@ -7,7 +7,7 @@ index 5f10bdb..e4465bd 100644
  CFLAGS		= -D__KERNEL__ -Wall -Wstrict-prototypes -Wno-trigraphs -Os \
  		  -fno-strict-aliasing -fno-common -fomit-frame-pointer -G 0 \
 -		  -mno-abicalls -fno-pic -ffunction-sections -pipe -mlong-calls \
-+		  -mno-abicalls -fno-pic -ffunction-sections -pipe -mno-mlong-calls \
++		  -mno-abicalls -fno-pic -ffunction-sections -pipe -mno-long-calls \
  		  -fno-common -ffreestanding -fhonour-copts \
 -		  -mabi=32 -march=mips32r2 \
 -		  -Wa,-32 -Wa,-march=mips32r2 -Wa,-mips32r2 -Wa,--trap
