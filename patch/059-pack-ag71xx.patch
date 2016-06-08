@@ -1,0 +1,11 @@
+--- ./target/linux/ar71xx/files/drivers/net/ethernet/atheros/ag71xx/ag71xx.h
++++ ./target/linux/ar71xx/files/drivers/net/ethernet/atheros/ag71xx/ag71xx.h
+@@ -83,7 +83,7 @@ struct ag71xx_desc {
+ #define DESC_PKTLEN_M	0xfff
+ 	u32	next;
+ 	u32	pad;
+-} __attribute__((aligned(4)));
++} __attribute__((packed, aligned(4)));
+ 
+ #define AG71XX_DESC_SIZE	roundup(sizeof(struct ag71xx_desc), \
+ 					L1_CACHE_BYTES)
