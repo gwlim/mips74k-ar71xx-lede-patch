@@ -100,9 +100,9 @@
  	}
 -
 -
-++#ifdef CONFIG_AG71XX_SRAM_DESCRIPTORS
-++descs_allocated:
-++#endif /* CONFIG_AG71XX_SRAM_DESCRIPTORS */
++#ifdef CONFIG_AG71XX_SRAM_DESCRIPTORS
++descs_allocated:
++#endif /* CONFIG_AG71XX_SRAM_DESCRIPTORS */
  	ring->buf = kzalloc(ring_size * sizeof(*ring->buf), GFP_KERNEL);
  	if (!ring->buf) {
  		err = -ENOMEM;
