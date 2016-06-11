@@ -107,7 +107,7 @@
  	if (!ring->buf) {
  		err = -ENOMEM;
 
-@@ -319,13 +357,13 @@ static int ag71xx_rings_init(struct ag71
+@@ -361,13 +361,13 @@ static int ag71xx_rings_init(struct ag71
  {
  	int ret;
  
@@ -123,7 +123,7 @@
  	if (ret)
  		return ret;
  
-@@ -1275,6 +1313,7 @@ static int ag71xx_probe(struct platform_
+@@ -1319,6 +1319,7 @@ static int ag71xx_probe(struct platform_
  	ag->dev = dev;
  	ag->msg_enable = netif_msg_init(ag71xx_msg_level,
  					AG71XX_DEFAULT_MSG_ENABLE);
