@@ -55,7 +55,7 @@
  #define ETH_SWITCH_HEADER_LEN	2
  
  static int ag71xx_tx_packets(struct ag71xx *ag, bool flush);
-@@ -106,24 +106,44 @@ static void ag71xx_ring_free(struct ag71
+@@ -106,16 +123,35 @@ static void ag71xx_ring_free(struct ag71
  	int ring_size = BIT(ring->order);
  	kfree(ring->buf);
  
@@ -77,13 +77,14 @@
  {
  	int ring_size = BIT(ring->order);
  	int err;
+-
 +#ifdef CONFIG_AG71XX_SRAM_DESCRIPTORS
 +	if (id < MAX_AG71XX_USING_SRAM) {
 +//		DBG("ag71xx: descriptors in SRAM\n");
 +		ring->iomem = ioremap_nocache(ag71xx_ring_bufs[id], 0x1000);
 +		if (ring->iomem == NULL)
 +			return -ENOMEM;
- 
++
 +	ring->descs_cpu = (u8 *)ring->iomem;
 +		ring->descs_dma = ((dma_addr_t)(ring->iomem) & 0x1fffffff);
 +		goto descs_allocated;
@@ -95,19 +96,17 @@
  	ring->descs_cpu = dma_alloc_coherent(NULL, ring_size * AG71XX_DESC_SIZE,
  					     &ring->descs_dma, GFP_ATOMIC);
  	if (!ring->descs_cpu) {
- 		err = -ENOMEM;
+@@ -123,6 +159,9 @@ static int ag71xx_ring_alloc(struct ag71
  		goto err;
  	}
--
--
+ 
 +#ifdef CONFIG_AG71XX_SRAM_DESCRIPTORS
 +descs_allocated:
 +#endif /* CONFIG_AG71XX_SRAM_DESCRIPTORS */
+ 
  	ring->buf = kzalloc(ring_size * sizeof(*ring->buf), GFP_KERNEL);
  	if (!ring->buf) {
- 		err = -ENOMEM;
-
-@@ -361,13 +361,13 @@ static int ag71xx_rings_init(struct ag71
+@@ -324,13 +363,13 @@ static int ag71xx_rings_init(struct ag71
  {
  	int ret;
  
@@ -123,7 +122,7 @@
  	if (ret)
  		return ret;
  
-@@ -1319,6 +1319,7 @@ static int ag71xx_probe(struct platform_
+@@ -1282,6 +1321,7 @@ static int ag71xx_probe(struct platform_
  	ag->dev = dev;
  	ag->msg_enable = netif_msg_init(ag71xx_msg_level,
  					AG71XX_DEFAULT_MSG_ENABLE);
