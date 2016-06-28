@@ -1,17 +1,16 @@
 diff --git a/package/base-files/files/etc/sysctl.conf b/package/base-files/files/etc/sysctl.conf
-index 91a3ac9..343a08e 100644
+index 91a3ac9..4069d14 100644
 --- a/package/base-files/files/etc/sysctl.conf
 +++ b/package/base-files/files/etc/sysctl.conf
-@@ -1,8 +1,17 @@
+@@ -1,8 +1,16 @@
  kernel.panic=3
  kernel.core_pattern=/tmp/%e.%t.%p.%s.core
-+vm.min_free_kbytes=2048
-+net.core.rmem_max=1048576
-+net.core.wmem_max=1048576
-+net.core.netdev_max_backlog=8192
++net.core.rmem_max=4194304
++net.core.wmem_max=4194304
++net.core.netdev_max_backlog=16384
 +net.ipv4.tcp_max_syn_backlog=4096
-+net.ipv4.tcp_rmem=4096 87380 1048576
-+net.ipv4.tcp_wmem=4096 65536 1048576
++net.ipv4.tcp_rmem=4096 87380 2097152
++net.ipv4.tcp_wmem=4096 65536 2097152
 +net.ipv4.tcp_slow_start_after_idle=0
  
  net.ipv4.conf.default.arp_ignore=1
@@ -20,7 +19,7 @@ index 91a3ac9..343a08e 100644
  net.ipv4.ip_forward=1
  net.ipv4.icmp_echo_ignore_broadcasts=1
  net.ipv4.icmp_ignore_bogus_error_responses=1
-@@ -16,6 +25,9 @@ net.ipv4.tcp_dsack=1
+@@ -16,6 +24,9 @@ net.ipv4.tcp_dsack=1
  
  net.ipv6.conf.default.forwarding=1
  net.ipv6.conf.all.forwarding=1
