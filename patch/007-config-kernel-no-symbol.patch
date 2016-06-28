@@ -42,7 +42,7 @@ index 4c191f0..2a37936 100644
  
  config KERNEL_MAGIC_SYSRQ
  	bool "Compile the kernel with SysRq support"
--	default n
+-	default y
 +	default n
  
  config KERNEL_COREDUMP
