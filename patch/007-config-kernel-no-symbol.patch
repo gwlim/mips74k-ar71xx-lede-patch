@@ -24,8 +24,8 @@ index 4c191f0..2a37936 100644
  
  config KERNEL_KALLSYMS
  	bool "Compile the kernel with symbol table information"
--	default y
-+	default y
+-	default y if !SMALL_FLASH
++	default y if !SMALL_FLASH
  	help
  	  This will give you more information in stack traces from kernel oopses.
  
@@ -42,7 +42,7 @@ index 4c191f0..2a37936 100644
  
  config KERNEL_MAGIC_SYSRQ
  	bool "Compile the kernel with SysRq support"
--	default y
+-	default n
 +	default n
  
  config KERNEL_COREDUMP
