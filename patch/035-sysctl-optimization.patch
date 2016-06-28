@@ -1,11 +1,11 @@
 diff --git a/package/base-files/files/etc/sysctl.conf b/package/base-files/files/etc/sysctl.conf
-index 91a3ac9..1a74f21 100644
+index 91a3ac9..343a08e 100644
 --- a/package/base-files/files/etc/sysctl.conf
 +++ b/package/base-files/files/etc/sysctl.conf
-@@ -1,5 +1,13 @@
+@@ -1,8 +1,17 @@
  kernel.panic=3
  kernel.core_pattern=/tmp/%e.%t.%p.%s.core
-+vm.min_free_kbytes=4096
++vm.min_free_kbytes=2048
 +net.core.rmem_max=1048576
 +net.core.wmem_max=1048576
 +net.core.netdev_max_backlog=8192
@@ -16,7 +16,11 @@ index 91a3ac9..1a74f21 100644
  
  net.ipv4.conf.default.arp_ignore=1
  net.ipv4.conf.all.arp_ignore=1
-@@ -16,6 +24,9 @@ net.ipv4.tcp_dsack=1
++net.ipv4.conf.all.rp_filter=1
+ net.ipv4.ip_forward=1
+ net.ipv4.icmp_echo_ignore_broadcasts=1
+ net.ipv4.icmp_ignore_bogus_error_responses=1
+@@ -16,6 +25,9 @@ net.ipv4.tcp_dsack=1
  
  net.ipv6.conf.default.forwarding=1
  net.ipv6.conf.all.forwarding=1
