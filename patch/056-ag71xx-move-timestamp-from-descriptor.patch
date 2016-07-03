@@ -49,12 +49,12 @@
  		return false;
  
  	rx_sm = ag71xx_rr(ag, AG71XX_REG_RX_SM);
-@@ -924,7 +923,7 @@ static int ag71xx_tx_packets(struct ag71
+@@ -970,7 +970,7 @@ static int ag71xx_tx_packets(struct ag71
  
  		if (!flush && !ag71xx_desc_empty(desc)) {
  			if (pdata->is_ar724x &&
--			    ag71xx_check_dma_stuck(ag, ring->buf[i].timestamp))
-+			    ag71xx_check_dma_stuck(ag, ag->dev))
- 				schedule_work(&ag->restart_work);
- 			break;
- 		}
+-			    ag71xx_check_dma_stuck(ag, ring->buf[i].timestamp)) {
++			    ag71xx_check_dma_stuck(ag, ag->dev)) {
+ 				schedule_delayed_work(&ag->restart_work, HZ / 2);
+ 				dma_stuck = true;
+ 			}
