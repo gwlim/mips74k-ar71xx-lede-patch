@@ -82,7 +82,7 @@
  
 -	DBG("%s: packet injected into TX queue\n", ag->dev->name);
 +//	DBG("%s: packet injected into TX queue\n", ag->dev->name);
- 	ag->dev->trans_start = jiffies;
+ 
  	/* enable TX engine */
  	ag71xx_wr(ag, AG71XX_REG_TX_CTRL, TX_CTRL_TXE);
 @@ -902,7 +900,7 @@ static int ag71xx_tx_packets(struct ag71
