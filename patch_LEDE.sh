@@ -23,7 +23,7 @@ do
       continue
   fi
   echo Compiling $file
-  java -jar compiler.jar --warning_level QUIET --compilation_level=SIMPLE_OPTIMIZATIONS --js="$file" --js_output_file="$file-min.js"
+  java -jar closure-compiler-*.jar --warning_level QUIET --compilation_level=SIMPLE_OPTIMIZATIONS --js="$file" --js_output_file="$file-min.js"
   mv -b "$file-min.js" "$file"
 done
 
