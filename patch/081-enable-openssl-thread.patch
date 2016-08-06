@@ -19,16 +19,15 @@ diff --git a/package/libs/openssl/Makefile b/package/libs/openssl/Makefile
 index bbdd521..043e3ff 100644
 --- a/package/libs/openssl/Makefile
 +++ b/package/libs/openssl/Makefile
-@@ -30,7 +30,8 @@ PKG_CONFIG_DEPENDS:= \
- 	CONFIG_OPENSSL_WITH_EC \
+@@ -33,6 +33,7 @@ PKG_CONFIG_DEPENDS:= \
  	CONFIG_OPENSSL_WITH_EC2M \
  	CONFIG_OPENSSL_WITH_SSL3 \
--	CONFIG_OPENSSL_HARDWARE_SUPPORT
-+	CONFIG_OPENSSL_HARDWARE_SUPPORT \
-+	CONFIG_OPENSSL_THREADS
- 
- include $(INCLUDE_DIR)/package.mk
- 
+ 	CONFIG_OPENSSL_HARDWARE_SUPPORT \
++	CONFIG_OPENSSL_THREADS \
+ 	CONFIG_OPENSSL_WITH_DEPRECATED \
+ 	CONFIG_OPENSSL_WITH_COMPRESSION \
+ 	CONFIG_OPENSSL_WITH_NPN \
+
 @@ -92,6 +93,12 @@ endef
  OPENSSL_NO_CIPHERS:= no-idea no-md2 no-mdc2 no-rc5 no-sha0 no-camellia no-krb5
  OPENSSL_OPTIONS:= shared no-err zlib-dynamic no-sse2 no-ssl2
