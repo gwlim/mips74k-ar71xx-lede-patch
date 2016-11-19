@@ -1,8 +1,8 @@
 diff --git a/package/utils/busybox/Config-defaults.in b/package/utils/busybox/Config-defaults.in
-index 75c5976..3ad58f6 100644
+index 11cce03..b976bdc 100644
 --- a/package/utils/busybox/Config-defaults.in
 +++ b/package/utils/busybox/Config-defaults.in
-@@ -240,7 +240,7 @@ config BUSYBOX_DEFAULT_FEATURE_EDITING_VI
+@@ -246,7 +246,7 @@ config BUSYBOX_DEFAULT_FEATURE_EDITING_VI
  	default n
  config BUSYBOX_DEFAULT_FEATURE_EDITING_HISTORY
  	int
@@ -11,8 +11,20 @@ index 75c5976..3ad58f6 100644
  config BUSYBOX_DEFAULT_FEATURE_EDITING_SAVEHISTORY
  	bool
  	default n
-@@ -1173,13 +1173,13 @@ config BUSYBOX_DEFAULT_USE_BB_CRYPT_SHA
+@@ -1188,22 +1188,22 @@ config BUSYBOX_DEFAULT_REMOVE_SHELL
  	default n
+ config BUSYBOX_DEFAULT_ADDGROUP
+ 	bool
+-	default n
++	default y
+ config BUSYBOX_DEFAULT_FEATURE_ADDGROUP_LONG_OPTIONS
+ 	bool
+-	default n
++	default y
+ config BUSYBOX_DEFAULT_FEATURE_ADDUSER_TO_GROUP
+ 	bool
+-	default n
++	default y
  config BUSYBOX_DEFAULT_ADDUSER
  	bool
 -	default n
@@ -28,24 +40,7 @@ index 75c5976..3ad58f6 100644
  config BUSYBOX_DEFAULT_LAST_ID
  	int
  	default 0
-@@ -1191,13 +1191,13 @@ config BUSYBOX_DEFAULT_LAST_SYSTEM_ID
- 	default 0
- config BUSYBOX_DEFAULT_ADDGROUP
- 	bool
--	default n
-+	default y
- config BUSYBOX_DEFAULT_FEATURE_ADDGROUP_LONG_OPTIONS
- 	bool
--	default n
-+	default y
- config BUSYBOX_DEFAULT_FEATURE_ADDUSER_TO_GROUP
- 	bool
--	default n
-+	default y
- config BUSYBOX_DEFAULT_DELUSER
- 	bool
- 	default n
-@@ -1434,13 +1434,13 @@ config BUSYBOX_DEFAULT_FDFORMAT
+@@ -1467,13 +1467,13 @@ config BUSYBOX_DEFAULT_FDFORMAT
  	default n
  config BUSYBOX_DEFAULT_FDISK
  	bool
@@ -62,7 +57,7 @@ index 75c5976..3ad58f6 100644
  config BUSYBOX_DEFAULT_FEATURE_AIX_LABEL
  	bool
  	default n
-@@ -1455,7 +1455,7 @@ config BUSYBOX_DEFAULT_FEATURE_OSF_LABEL
+@@ -1488,7 +1488,7 @@ config BUSYBOX_DEFAULT_FEATURE_OSF_LABEL
  	default n
  config BUSYBOX_DEFAULT_FEATURE_GPT_LABEL
  	bool
@@ -71,7 +66,7 @@ index 75c5976..3ad58f6 100644
  config BUSYBOX_DEFAULT_FEATURE_FDISK_ADVANCED
  	bool
  	default n
-@@ -2298,7 +2298,7 @@ config BUSYBOX_DEFAULT_FEATURE_TRACEROUTE_SOURCE_ROUTE
+@@ -2337,7 +2337,7 @@ config BUSYBOX_DEFAULT_FEATURE_TRACEROUTE_SOURCE_ROUTE
  	default n
  config BUSYBOX_DEFAULT_FEATURE_TRACEROUTE_USE_ICMP
  	bool
@@ -80,7 +75,7 @@ index 75c5976..3ad58f6 100644
  config BUSYBOX_DEFAULT_TUNCTL
  	bool
  	default n
-@@ -2394,7 +2394,7 @@ config BUSYBOX_DEFAULT_FEATURE_REFORMIME_COMPAT
+@@ -2433,7 +2433,7 @@ config BUSYBOX_DEFAULT_FEATURE_REFORMIME_COMPAT
  	default n
  config BUSYBOX_DEFAULT_SENDMAIL
  	bool
@@ -89,7 +84,7 @@ index 75c5976..3ad58f6 100644
  config BUSYBOX_DEFAULT_IOSTAT
  	bool
  	default n
-@@ -2499,7 +2499,7 @@ config BUSYBOX_DEFAULT_FEATURE_PS_UNUSUAL_SYSTEMS
+@@ -2538,7 +2538,7 @@ config BUSYBOX_DEFAULT_FEATURE_PS_UNUSUAL_SYSTEMS
  	default n
  config BUSYBOX_DEFAULT_RENICE
  	bool
