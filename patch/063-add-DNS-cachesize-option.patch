@@ -1,6 +1,6 @@
 --- a/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_network/dhcp.lua
 +++ b/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_network/dhcp.lua
-@@ -96,6 +96,9 @@ s:taboption("advanced", Flag, "strictord
+@@ -120,6 +120,9 @@ s:taboption("advanced", Flag, "strictord
  	translate("<abbr title=\"Domain Name System\">DNS</abbr> servers will be queried in the " ..
  		"order of the resolvfile")).optional = true
  
@@ -10,28 +10,7 @@
  
  bn = s:taboption("advanced", DynamicList, "bogusnxdomain", translate("Bogus NX Domain Override"),
  	translate("List of hosts that supply bogus NX domain results"))
-@@ -129,6 +132,20 @@ rl = s:taboption("general", Flag, "rebin
- 
- rl:depends("rebind_protection", "1")
- 
-+ls = s:taboption("general", Flag, "localservice",
-+	translate("Only allow local service"),
-+	translate("Accept DNS queries only from hosts whose address is on a local subnet"))
-+ls.optional = true
-+
-+qd = s:taboption("general", Flag, "quietdhcp",
-+	translate("Suppress DHCP routine logging"),
-+	translate("Suppress logging of the routine operation of these protocols"))
-+qd.optional = true
-+
-+si = s:taboption("general", Flag, "sequential_ip",
-+	translate("Allocate IP sequentially"),
-+	translate("Allocate IP sequentially starting from the lowest available address"))
-+si.optional = true
- 
- rd = s:taboption("general", DynamicList, "rebind_domain",
- 	translate("Domain whitelist"),
-@@ -174,7 +191,7 @@ em = s:taboption("advanced", Value, "edn
+@@ -199,7 +202,7 @@ em = s:taboption("advanced", Value, "edn
  
  em.optional = true
  em.datatype = "uinteger"
@@ -40,7 +19,7 @@
  
  
  cq = s:taboption("advanced", Value, "dnsforwardmax",
-@@ -185,6 +202,13 @@ cq.optional = true
+@@ -210,6 +213,13 @@ cq.optional = true
  cq.datatype = "uinteger"
  cq.placeholder = 150
  
@@ -54,6 +33,7 @@
  
  s:taboption("tftp", Flag, "enable_tftp",
  	translate("Enable TFTP server")).optional = true
+
 diff --git a/package/network/services/dnsmasq/files/dnsmasq.init b/package/network/services/dnsmasq/files/dnsmasq.init
 index 1b42cff..59ebcc5 100644
 --- a/package/network/services/dnsmasq/files/dnsmasq.init
