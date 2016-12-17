@@ -50,7 +50,7 @@ index 843154d..e248e4d 100644
  # CONFIG_IPC_NS is not set
  # CONFIG_IPMI_HANDLER is not set
 -# CONFIG_IPV6 is not set
-+CONFIG_IPV6=y
++# CONFIG_IPV6 is not set
  # CONFIG_IPV6_ILA is not set
  # CONFIG_IPV6_MIP6 is not set
  # CONFIG_IPV6_MROUTE is not set
@@ -160,8 +160,8 @@ index 843154d..e248e4d 100644
  # CONFIG_NFT_DUP_IPV4 is not set
  # CONFIG_NFT_DUP_IPV6 is not set
 -# CONFIG_NF_CONNTRACK is not set
-+CONFIG_NF_CONNTRACK=y
-+CONFIG_NF_CONNTRACK_RTCACHE=y
++# CONFIG_NF_CONNTRACK is not set
++# CONFIG_NF_CONNTRACK_RTCACHE is not set
  # CONFIG_NF_CONNTRACK_AMANDA is not set
  # CONFIG_NF_CONNTRACK_EVENTS is not set
  # CONFIG_NF_CONNTRACK_FTP is not set
@@ -187,7 +187,7 @@ index 843154d..e248e4d 100644
  # CONFIG_NF_CT_PROTO_SCTP is not set
  # CONFIG_NF_CT_PROTO_UDPLITE is not set
 -# CONFIG_NF_DEFRAG_IPV4 is not set
-+CONFIG_NF_DEFRAG_IPV4=y
++# CONFIG_NF_DEFRAG_IPV4 is not set
  # CONFIG_NF_DUP_IPV4 is not set
  # CONFIG_NF_DUP_IPV6 is not set
  # CONFIG_NF_LOG_ARP is not set

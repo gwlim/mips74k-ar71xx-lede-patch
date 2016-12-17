@@ -9,7 +9,7 @@
 +luci luci-app-ddns luci-app-mwan3 luci-app-sqm luci-app-upnp luci-proto-relay luci-proto-3g luci-app-wol \
 +kmod-usb-acm kmod-usb-serial-ipw kmod-usb-serial-option kmod-usb-serial-qualcomm kmod-usb-serial-sierrawireless kmod-usb-serial-wwan \
 +kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-mbim kmod-usb-net-cdc-ncm kmod-usb-net-cdc-subset kmod-usb-net-hso kmod-usb-net-huawei-cdc-ncm kmod-usb-net-kalmia kmod-usb-net-qmi-wwan kmod-usb-net-sierrawireless \
-+umbim uqmi wwan comgt comgt-directip comgt-ncm usb-modeswitch \
++umbim uqmi wwan comgt comgt-directip comgt-ncm usb-modeswitch kmod-sched-cake \
 +464xlat 6in4 6rd 6to4 aiccu ds-lite map-t ppp-mod-pptp pppossh xl2tpd \
 +igmpproxy
 +
