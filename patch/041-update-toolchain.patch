@@ -1,0 +1,38 @@
+diff --git a/toolchain/gcc/Config.in b/toolchain/gcc/Config.in
+index 41ea61c..1ad283f 100644
+--- a/toolchain/gcc/Config.in
++++ b/toolchain/gcc/Config.in
+@@ -3,7 +3,7 @@
+ choice
+ 	prompt "GCC compiler Version" if TOOLCHAINOPTS
+ 	default GCC_USE_VERSION_4_8_ARC if arc
+-	default GCC_USE_VERSION_5
++	default GCC_USE_VERSION_6
+ 	help
+ 	  Select the version of gcc you wish to use.
+ 
+diff --git a/toolchain/binutils/Config.in b/toolchain/binutils/Config.in
+index 9e535c4..5a22693 100644
+--- a/toolchain/binutils/Config.in
++++ b/toolchain/binutils/Config.in
+@@ -2,7 +2,7 @@
+ 
+ choice
+ 	prompt "Binutils Version" if TOOLCHAINOPTS
+-	default BINUTILS_USE_VERSION_2_25_1 if !arc
++	default BINUTILS_USE_VERSION_2_27 if !arc
+ 	default BINUTILS_USE_VERSION_2_26_ARC if arc
+ 	help
+ 	  Select the version of binutils you wish to use.
+diff --git a/toolchain/gcc/final/Makefile b/toolchain/gcc/final/Makefile
+index 01fec38..5c5f720 100644
+@@ -11,7 +11,7 @@ GCC_CONFIGURE += \
+ 	--with-slibdir=$(TOOLCHAIN_DIR)/lib \
+ 	--enable-lto \
+ 	--enable-libstdcxx-threads \
+-	--disable-nls --with-mips-plt \
++	--disable-nls --with-mips-plt -mframe-header-opt --enable-default-pie \
+ 	--with-libelf=$(TOPDIR)/staging_dir/host
+ 
+ ifdef CONFIG_USE_MUSL
+
