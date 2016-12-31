@@ -26,6 +26,8 @@ index 9e535c4..5a22693 100644
  	  Select the version of binutils you wish to use.
 diff --git a/toolchain/gcc/final/Makefile b/toolchain/gcc/final/Makefile
 index 01fec38..5c5f720 100644
+--- a/toolchain/gcc/final/Makefile
++++ b/toolchain/gcc/final/Makefile
 @@ -11,7 +11,7 @@ GCC_CONFIGURE += \
  	--with-slibdir=$(TOOLCHAIN_DIR)/lib \
  	--enable-lto \
@@ -35,4 +37,3 @@ index 01fec38..5c5f720 100644
  	--with-libelf=$(TOPDIR)/staging_dir/host
  
  ifdef CONFIG_USE_MUSL
-
