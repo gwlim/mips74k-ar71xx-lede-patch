@@ -33,7 +33,7 @@ index 01fec38..5c5f720 100644
  	--enable-lto \
  	--enable-libstdcxx-threads \
 -	--disable-nls --with-mips-plt \
-+	--disable-nls --with-mips-plt -mframe-header-opt --enable-default-pie \
++	--disable-nls --with-mips-plt --enable-default-pie \
  	--with-libelf=$(TOPDIR)/staging_dir/host
  
  ifdef CONFIG_USE_MUSL
