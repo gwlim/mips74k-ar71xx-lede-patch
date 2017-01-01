@@ -8,7 +8,7 @@ index 938f0b3..d8dde72 100644
  		string "Additional compiler options" if DEVEL
 -		default "-fno-caller-saves -fno-plt" if !CONFIG_EXTERNAL_TOOLCHAIN && !arc
 -		default "-fno-caller-saves"
-+		default "-fno-caller-saves -fno-plt -DNDEBUG" if !CONFIG_EXTERNAL_TOOLCHAIN && !arc
++		default "-fno-caller-saves -fno-plt -fomit-frame-pointer -DNDEBUG" if !CONFIG_EXTERNAL_TOOLCHAIN && !arc
 +		default "-fno-caller-saves -DNDEBUG"
  		help
  		  Extra target-independent optimizations to use when building for the target.
