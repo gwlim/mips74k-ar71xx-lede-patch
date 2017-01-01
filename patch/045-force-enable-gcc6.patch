@@ -1,0 +1,25 @@
+diff --git a/config/Config-devel.in b/config/Config-devel.in
+index 938f0b3..52bcb57 100644
+--- a/config/Config-devel.in
++++ b/config/Config-devel.in
+@@ -6,7 +6,7 @@
+ 
+ menuconfig DEVEL
+ 	bool "Advanced configuration options (for developers)"
+-	default n
++	default y
+ 
+ 	config BROKEN
+ 		bool "Show broken platforms / packages" if DEVEL
+diff --git a/toolchain/Config.in b/toolchain/Config.in
+index b53b8e6..11eed77 100644
+--- a/toolchain/Config.in
++++ b/toolchain/Config.in
+@@ -163,6 +163,7 @@ config NEED_TOOLCHAIN
+ menuconfig TOOLCHAINOPTS
+ 	bool "Toolchain Options"  if DEVEL
+ 	depends on NEED_TOOLCHAIN
++	default y
+ 
+ menuconfig EXTRA_TARGET_ARCH
+ 	bool
