@@ -1,0 +1,164 @@
+diff --git a/./package/network/utils/iptables/patches/800-align-32bit.patch b/./package/network/utils/iptables/patches/800-align-32bit.patch
+new file mode 100644
+index 0000000..3db7cfe
+--- /dev/null
++++ b/./package/network/utils/iptables/patches/800-align-32bit.patch
+@@ -0,0 +1,158 @@
++--- a/include/xtables.h	2013-11-22 19:18:13.000000000 +0800
+++++ b/include/xtables.h	2017-01-07 14:30:24.583532660 +0800
++@@ -451,7 +451,7 @@ extern void
++ xtables_parse_interface(const char *arg, char *vianame, unsigned char *mask);
++ 
++ /* this is a special 64bit data type that is 8-byte aligned */
++-#define aligned_u64 u_int64_t __attribute__((aligned(8)))
+++#define aligned_u64 u_int64_t __attribute__((aligned(4)))
++ 
++ extern struct xtables_globals *xt_params;
++ #define xtables_error (xt_params->exit_err)
++--- a/include/linux/netfilter/xt_TEE.h	2013-11-22 19:18:13.000000000 +0800
+++++ b/include/linux/netfilter/xt_TEE.h	2017-01-07 14:31:57.113743451 +0800
++@@ -6,7 +6,7 @@ struct xt_tee_tginfo {
++ 	char oif[16];
++ 
++ 	/* used internally by the kernel */
++-	struct xt_tee_priv *priv __attribute__((aligned(8)));
+++	struct xt_tee_priv *priv __attribute__((aligned(4)));
++ };
++ 
++ #endif /* _XT_TEE_TARGET_H */
++--- a/include/linux/netfilter/xt_bpf.h	2013-11-22 19:18:13.000000000 +0800
+++++ b/include/linux/netfilter/xt_bpf.h	2017-01-07 14:32:20.970797799 +0800
++@@ -11,7 +11,7 @@ struct xt_bpf_info {
++ 	struct sock_filter bpf_program[XT_BPF_MAX_NUM_INSTR];
++ 
++ 	/* only used in the kernel */
++-	struct sk_filter *filter __attribute__((aligned(8)));
+++	struct sk_filter *filter __attribute__((aligned(4)));
++ };
++ 
++ #endif /*_XT_BPF_H */
++--- a/include/linux/netfilter/xt_hashlimit.h	2013-11-22 19:18:13.000000000 +0800
+++++ b/include/linux/netfilter/xt_hashlimit.h	2017-01-07 14:33:02.960893455 +0800
++@@ -66,7 +66,7 @@ struct xt_hashlimit_mtinfo1 {
++ 	struct hashlimit_cfg1 cfg;
++ 
++ 	/* Used internally by the kernel */
++-	struct xt_hashlimit_htable *hinfo __attribute__((aligned(8)));
+++	struct xt_hashlimit_htable *hinfo __attribute__((aligned(4)));
++ };
++ 
++ #endif /*_XT_HASHLIMIT_H*/
++--- a/include/linux/netfilter/xt_string.h	2013-11-22 19:18:13.000000000 +0800
+++++ b/include/linux/netfilter/xt_string.h	2017-01-07 14:33:27.973950436 +0800
++@@ -28,7 +28,7 @@ struct xt_string_info {
++ 	} u;
++ 
++ 	/* Used internally by the kernel */
++-	struct ts_config __attribute__((aligned(8))) *config;
+++	struct ts_config __attribute__((aligned(4))) *config;
++ };
++ 
++ #endif /*_XT_STRING_H*/
++--- a/include/linux/netfilter/xt_IDLETIMER.h	2013-11-22 19:18:13.000000000 +0800
+++++ b/include/linux/netfilter/xt_IDLETIMER.h	2017-01-07 14:34:10.872048161 +0800
++@@ -39,7 +39,7 @@ struct idletimer_tg_info {
++ 	char label[MAX_IDLETIMER_LABEL_SIZE];
++ 
++ 	/* for kernel module internal use only */
++-	struct idletimer_tg *timer __attribute__((aligned(8)));
+++	struct idletimer_tg *timer __attribute__((aligned(4)));
++ };
++ 
++ #endif
++--- a/include/linux/netfilter/xt_rateest.h	2013-11-22 19:18:13.000000000 +0800
+++++ b/include/linux/netfilter/xt_rateest.h	2017-01-07 14:34:52.662143362 +0800
++@@ -30,8 +30,8 @@ struct xt_rateest_match_info {
++ 	__u32		pps2;
++ 
++ 	/* Used internally by the kernel */
++-	struct xt_rateest	*est1 __attribute__((aligned(8)));
++-	struct xt_rateest	*est2 __attribute__((aligned(8)));
+++	struct xt_rateest	*est1 __attribute__((aligned(4)));
+++	struct xt_rateest	*est2 __attribute__((aligned(4)));
++ };
++ 
++ #endif /* _XT_RATEEST_MATCH_H */
++--- a/include/linux/netfilter/xt_statistic.h	2013-11-22 19:18:13.000000000 +0800
+++++ b/include/linux/netfilter/xt_statistic.h	2017-01-07 14:35:10.421183818 +0800
++@@ -30,7 +30,7 @@ struct xt_statistic_info {
++ 			__u32	count; /* unused */
++ 		} nth;
++ 	} u;
++-	struct xt_statistic_priv *master __attribute__((aligned(8)));
+++	struct xt_statistic_priv *master __attribute__((aligned(4)));
++ };
++ 
++ #endif /* _XT_STATISTIC_H */
++--- a/include/linux/netfilter/xt_LED.h	2013-11-22 19:18:13.000000000 +0800
+++++ b/include/linux/netfilter/xt_LED.h	2017-01-07 14:35:38.859248602 +0800
++@@ -9,7 +9,7 @@ struct xt_led_info {
++ 	__u32 delay;        /* Delay until LED is switched off after trigger */
++ 
++ 	/* Kernel data used in the module */
++-	void *internal_data __attribute__((aligned(8)));
+++	void *internal_data __attribute__((aligned(4)));
++ };
++ 
++ #endif /* _XT_LED_H */
++--- a/include/linux/netfilter/xt_RATEEST.h	2013-11-22 19:18:13.000000000 +0800
+++++ b/include/linux/netfilter/xt_RATEEST.h	2017-01-07 14:36:02.700302913 +0800
++@@ -9,7 +9,7 @@ struct xt_rateest_target_info {
++ 	__u8		ewma_log;
++ 
++ 	/* Used internally by the kernel */
++-	struct xt_rateest	*est __attribute__((aligned(8)));
+++	struct xt_rateest	*est __attribute__((aligned(4)));
++ };
++ 
++ #endif /* _XT_RATEEST_TARGET_H */
++--- a/include/linux/netfilter/xt_CT.h	2013-11-22 19:18:13.000000000 +0800
+++++ b/include/linux/netfilter/xt_CT.h	2017-01-07 14:36:25.949355877 +0800
++@@ -16,7 +16,7 @@ struct xt_ct_target_info {
++ 	char helper[16];
++ 
++ 	/* Used internally by the kernel */
++-	struct nf_conn	*ct __attribute__((aligned(8)));
+++	struct nf_conn	*ct __attribute__((aligned(4)));
++ };
++ 
++ struct xt_ct_target_info_v1 {
++@@ -28,7 +28,7 @@ struct xt_ct_target_info_v1 {
++ 	char timeout[32];
++ 
++ 	/* Used internally by the kernel */
++-	struct nf_conn	*ct __attribute__((aligned(8)));
+++	struct nf_conn	*ct __attribute__((aligned(4)));
++ };
++ 
++ #endif /* _XT_CT_H */
++--- a/include/linux/netfilter/xt_connlimit.h	2013-11-22 19:18:13.000000000 +0800
+++++ b/include/linux/netfilter/xt_connlimit.h	2017-01-07 14:36:47.509404992 +0800
++@@ -28,7 +28,7 @@ struct xt_connlimit_info {
++ 	};
++ 
++ 	/* Used internally by the kernel */
++-	struct xt_connlimit_data *data __attribute__((aligned(8)));
+++	struct xt_connlimit_data *data __attribute__((aligned(4)));
++ };
++ 
++ #endif /* _XT_CONNLIMIT_H */
++--- a/include/linux/types.h	2017-01-07 14:43:53.000000000 +0800
+++++ b/include/linux/types.h	2017-01-07 14:44:07.857408136 +0800
++@@ -43,9 +43,9 @@ typedef __u32 __bitwise __wsum;
++  * aligned_64 values have the same alignment on 32-bit and 64-bit architectures.
++  * No conversions are necessary between 32-bit user-space and a 64-bit kernel.
++  */
++-#define __aligned_u64 __u64 __attribute__((aligned(8)))
++-#define __aligned_be64 __be64 __attribute__((aligned(8)))
++-#define __aligned_le64 __le64 __attribute__((aligned(8)))
+++#define __aligned_u64 __u64 __attribute__((aligned(4)))
+++#define __aligned_be64 __be64 __attribute__((aligned(4)))
+++#define __aligned_le64 __le64 __attribute__((aligned(4)))
++ 
++ #endif /*  __ASSEMBLY__ */
++ #endif /* _LINUX_TYPES_H */

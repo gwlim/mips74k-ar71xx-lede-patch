@@ -1,0 +1,17 @@
+diff --git a/./target/linux/ar71xx/patches-4.4/950-align-32bit.patch b/./target/linux/ar71xx/patches-4.4/950-align-32bit.patch
+new file mode 100644
+index 0000000..71177bc
+--- /dev/null
++++ b/./target/linux/ar71xx/patches-4.4/950-align-32bit.patch
+@@ -0,0 +1,11 @@
++--- a/include/linux/skbuff.h
+++++ b/include/linux/skbuff.h
++@@ -566,7 +566,7 @@ struct sk_buff {
++ 	 * want to keep them across layers you have to do a skb_clone()
++ 	 * first. This is owned by whoever has the skb queued ATM.
++ 	 */
++-	char			cb[48] __aligned(8);
+++	char			cb[48] __aligned(4);
++ 
++ 	unsigned long		_skb_refdst;
++ 	void			(*destructor)(struct sk_buff *skb);
