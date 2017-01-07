@@ -235,20 +235,6 @@
 + SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
 + 
 --- /dev/null	2015-11-28 01:15:15.066201681 +0800
-+++ ./package/network/ipv6/odhcp6c/patches/CMakeLists.patch	2015-11-28 13:57:39.705095939 +0800
-@@ -0,0 +1,11 @@
-+--- a/CMakeLists.txt	2014-12-10 19:30:34.000000000 +0800
-++++ b/CMakeLists.txt	2015-11-28 13:56:53.223065929 +0800
-+@@ -4,7 +4,7 @@ cmake_policy(SET CMP0015 NEW)
-+ # Project Definition
-+ project(odhcp6c C)
-+ set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
-+-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -std=c99")
-++set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
-+ add_definitions(-D_GNU_SOURCE -Wall -Werror -Wextra -pedantic)
-+ 
-+ if(${EXT_PREFIX_CLASS})
---- /dev/null	2015-11-28 01:15:15.066201681 +0800
 +++ ./package/network/services/odhcpd/patches/CMakeLists.patch	2015-11-28 13:59:09.333161210 +0800
 @@ -0,0 +1,11 @@
 +--- a/CMakeLists.txt	2014-11-15 17:25:12.000000000 +0800
