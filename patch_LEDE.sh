@@ -2,6 +2,9 @@
 set -e
 ./scripts/feeds update -a
 ./scripts/feeds install -a
+echo Add QCA Repo
+echo 'src-git qcassdk https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-ssdk.git' >> ./feeds.conf.default
+echo 'src-git ssdkshell https://source.codeaurora.org/quic/qsdk/oss/ssdk-shell.git' >> ./feeds.conf.default
 echo Remove Support for PPPOA
 rm ./feeds/luci/protocols/luci-proto-ppp/luasrc/model/cbi/admin_network/proto_pppoa.lua
 rm ./target/linux/ar71xx/patches-4.4/910-unaligned_access_hacks.patch
