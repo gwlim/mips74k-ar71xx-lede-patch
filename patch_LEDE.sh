@@ -1,9 +1,8 @@
 #!/bin/bash
 set -e
 echo Add QCA Repo
-echo 'src-git qcassdk https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-ssdk.git' >> ./feeds.conf.default
-echo 'src-git ssdkshell https://source.codeaurora.org/quic/qsdk/oss/ssdk-shell.git' >> ./feeds.conf.default
 wget https://source.codeaurora.org/quic/qsdk/oss/system/openwrt/plain/include/local-development.mk -P ./include/
+echo 'src-git ssdk https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-ssdk.git' >> ./feeds.conf.default
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 echo Remove Support for PPPOA
