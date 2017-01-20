@@ -6,9 +6,9 @@ index 594b48e..c73f269 100644
  ARCH:=mips
  BOARD:=ar71xx
  BOARDNAME:=Atheros AR7xxx/AR9xxx
--FEATURES:=mips16
+-FEATURES:=mips16 usbgadget
 -CPU_TYPE:=24kc
-+FEATURES:=
++FEATURES:=usbgadget
 +CPU_TYPE=74kc
 +CPU_SUBTYPE:=dsp2
  SUBTARGETS:=generic nand mikrotik
