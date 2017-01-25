@@ -1,0 +1,16 @@
+--- a/package/ssdk/qca-ssdk-shell/src/src/shell/shell.c	2017-01-25 23:07:09.000000000 +0800
++++ b/package/ssdk/qca-ssdk-shell/src/src/shell/shell.c	2017-01-25 23:58:54.532547636 +0800
+@@ -574,11 +574,11 @@ cmd_socket_init()
+     rv = ssdk_init(0, &init_cfg);
+     if (SW_OK == rv)
+     {
+-        dprintf("\n SSDK Init OK!");
++        dprintf("\nSSDK Init OK!");
+     }
+     else
+     {
+-        dprintf("\n SSDK Init Fail! RV[%d]", rv);
++        dprintf("\nSSDK Init Fail! RV[%d]", rv);
+     }
+ 
+     if (flag == 0)
