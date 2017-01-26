@@ -1,11 +1,93 @@
 --- a/package/ssdk/qca-ssdk-shell/src/src/shell/shell.c	2017-01-25 23:07:09.000000000 +0800
 +++ b/package/ssdk/qca-ssdk-shell/src/src/shell/shell.c	2017-01-25 23:58:54.532547636 +0800
+@@ -31,36 +31,36 @@ static a_uint32_t *ioctl_argp;
+ static FILE * out_fd;
+ static char *err_info[] =
+ {
+-    "Operation succeeded",                 /*SW_OK*/
++    "Operation successful",                 /*SW_OK*/
+     "Operation failed",                    /*SW_FAIL*/
+-    "Illegal value ",                      /*SW_BAD_VALUE*/
+-    "Value is out of range ",              /*SW_OUT_OF_RANGE*/
+-    "Illegal parameter(s) ",               /*SW_BAD_PARAM*/
+-    "Illegal pointer value ",              /*SW_BAD_PTR*/
+-    "Wrong length",                        /*SW_BAD_LEN*/
+-    "Wrong state of state machine ",       /*SW_BAD_STATE*/
+-    "Read operation failed  ",             /*SW_READ_ERROR*/
+-    "Write operation failed ",             /*SW_WRITE_ERROR*/
+-    "Fail in creating an entry ",          /*SW_CREATE_ERROR*/
+-    "Fail in deleteing an entry ",         /*SW_DELETE_ERROR*/
+-    "Entry not found     ",                /*SW_NOT_FOUND*/
+-    "The parameter(s) is the same  ",      /*SW_NO_CHANGE*/
+-    "No more entry found  ",               /*SW_NO_MORE*/
+-    "No such entry   ",                    /*SW_NO_SUCH*/
+-    "Tried to create existing entry ",     /*SW_ALREADY_EXIST*/
+-    "Table is full  ",                     /*SW_FULL*/
+-    "Table is empty ",                     /*SW_EMPTY*/
+-    "This request is not support    ",     /*SW_NOT_SUPPORTED*/
+-    "This request is not implemented",     /*SW_NOT_IMPLEMENTED*/
++    "Illegal value",                      /*SW_BAD_VALUE*/
++    "Value is out of range",              /*SW_OUT_OF_RANGE*/
++    "Illegal parameter(s)",               /*SW_BAD_PARAM*/
++    "Illegal pointer value",              /*SW_BAD_PTR*/
++    "Incorrect length",                        /*SW_BAD_LEN*/
++    "Incorrect state of state machine",       /*SW_BAD_STATE*/
++    "Read operation failed",             /*SW_READ_ERROR*/
++    "Write operation failed",             /*SW_WRITE_ERROR*/
++    "Fail creating entry",          /*SW_CREATE_ERROR*/
++    "Fail deleting entry",         /*SW_DELETE_ERROR*/
++    "Entry not found",                /*SW_NOT_FOUND*/
++    "The parameter(s) is the same",      /*SW_NO_CHANGE*/
++    "No more entry found",               /*SW_NO_MORE*/
++    "Entry does not exist",                    /*SW_NO_SUCH*/
++    "Entry already exist",     /*SW_ALREADY_EXIST*/
++    "Table is full",                     /*SW_FULL*/
++    "Table is empty",                     /*SW_EMPTY*/
++    "Request not supported",     /*SW_NOT_SUPPORTED*/
++    "Request not implemented",     /*SW_NOT_IMPLEMENTED*/
+     "The item is not initialized ",        /*SW_NOT_INITIALIZED*/
+     "Operation is still running",          /*SW_BUSY*/
+-    "Operation Time Out ",                 /*SW_TIMEOUT*/
+-    "Operation is disabled ",              /*SW_DISABLE*/
+-    "Resource not available (memory ...)", /*SW_NO_RESOURCE*/
+-    "Error occured while INIT process",    /*SW_INIT_ERROR*/
+-    "The other side is not ready yet",     /*SW_NOT_READY */
+-    "Cpu memory allocation failed. ",      /*SW_OUT_OF_MEM */
+-    "Operation has been aborted. ",        /*SW_ABORTED*/
++    "Operation time out ",                 /*SW_TIMEOUT*/
++    "Operation is disabled",              /*SW_DISABLE*/
++    "Resource not available", /*SW_NO_RESOURCE*/
++    "Error occurred during INIT process",    /*SW_INIT_ERROR*/
++    "State is not ready",     /*SW_NOT_READY */
++    "Memory allocation failed",      /*SW_OUT_OF_MEM */
++    "Operation aborted",        /*SW_ABORTED*/
+ } ;
+ 
+ void
+@@ -199,7 +199,7 @@ cmd_api_output(sw_api_param_t *pp, a_uin
+                 }
+                 else
+                 {
+-                    dprintf("\n Error, not define output print function!");
++                    dprintf("\nError, output print function not define!");
+                 }
+             }
+ 
+@@ -550,7 +550,7 @@ cmd_exec(a_uint32_t *arg_val, int cmd_in
+     if(rtn != SW_OK)
+         cmd_print_error(rtn);
+     else
+-        dprintf("\noperate done.\n\n");
++
+ 
+     return 0;
+ }
 @@ -574,11 +574,11 @@ cmd_socket_init()
      rv = ssdk_init(0, &init_cfg);
      if (SW_OK == rv)
      {
 -        dprintf("\n SSDK Init OK!");
-+        dprintf("\nSSDK Init OK!");
++
      }
      else
      {
@@ -14,3 +96,27 @@
      }
  
      if (flag == 0)
+@@ -665,12 +665,12 @@ cmd_run_batch (char *cmd_str)
+ 
+     if((in_fd = fopen(tmp_str[1], "r")) == NULL)
+     {
+-        dprintf("can't open cmd file %s\n", tmp_str[1]);
++        dprintf("cannot open cmd file %s\n", tmp_str[1]);
+         return SW_FAIL;
+     }
+     if((out_fd = fopen(tmp_str[2], "w+")) == NULL)
+     {
+-        dprintf("can't open result file %s\n", tmp_str[2]);
++        dprintf("cannot open result file %s\n", tmp_str[2]);
+         return SW_FAIL;
+     }
+ 
+@@ -763,7 +763,7 @@ void cmd_welcome()
+     date = BUILD_DATE;
+ #endif
+ 
+-    dprintf("\n Welcome to SSDK Shell version: %s, at %s.\n", ver, date);
++    dprintf("\nWelcome to SSDK Shell version: %s, at %s.\n", ver, date);
+ }
+ 
+ /* Dummy function to avoid linker complaints */
