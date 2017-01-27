@@ -43,8 +43,8 @@ do
   java -jar yuicompressor-2.4.8.jar -o "$file-min.css" "$file"
   mv -b "$file-min.css" "$file"
 done
-sed -i 's|-O2 -fno-pic -pipe -mabi=32 -march=mips32r2|$(TARGET_CFLAGS)|g' ./package/ssdk/qca-ssdk/src/make/linux_opt.mk
-sed -i 's|-O2 -fno-pic -pipe -mabi=32 -march=mips32r2|$(TARGET_CFLAGS)|g' ./package/ssdk/qca-ssdk-shell/src/make/linux_opt.mk
+sed -i 's|-O2 -fno-pic -pipe -mabi=32 -march=mips32r2|-Os -fno-pic -pipe -mabi=32 -march=74kc|g' ./package/ssdk/qca-ssdk/src/make/linux_opt.mk
+sed -i 's|-O2 -fno-pic -pipe -mabi=32 -march=mips32r2|-Os -fno-pic -pipe -mabi=32 -march=74kc|g' ./package/ssdk/qca-ssdk-shell/src/make/linux_opt.mk
 #for file in $( find $directory -name '*.htm' )
 #do
 #  echo Minifying $file
