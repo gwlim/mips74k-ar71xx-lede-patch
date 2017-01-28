@@ -106,7 +106,7 @@
      if (*cmd_index == GCMD_DESC_NO_MATCH || *cmd_index_sub == GCMD_DESC_NO_MATCH)
      {
 -        dprintf("invalid or incomplete command.\n\n");
-+	  dprintf("Invalid or incomplete command.");
++	  dprintf("Invalid or incomplete command\n");
          return NULL;
      }
  
@@ -138,7 +138,7 @@
  cmd_batch_help(void)
  {
 -    dprintf("usage:run <cmd_file> <result_file>\n");
-+      dprintf("usage:run <cmd_file> <result_file>");
++      dprintf("usage:run <cmd_file> <result_file>\n");
  }
  
  static sw_error_t
@@ -147,13 +147,13 @@
      if((in_fd = fopen(tmp_str[1], "r")) == NULL)
      {
 -        dprintf("can't open cmd file %s\n", tmp_str[1]);
-+	  dprintf("cannot open cmd file %s", tmp_str[1]);
++	  dprintf("cannot open cmd file %s\n", tmp_str[1]);
          return SW_FAIL;
      }
      if((out_fd = fopen(tmp_str[2], "w+")) == NULL)
      {
 -        dprintf("can't open result file %s\n", tmp_str[2]);
-+	  dprintf("cannot open result file %s", tmp_str[2]);
++	  dprintf("cannot open result file %s\n", tmp_str[2]);
          return SW_FAIL;
      }
  
@@ -186,7 +186,7 @@
  #endif
  
 -    dprintf("\n Welcome to SSDK Shell version: %s, at %s.\n", ver, date);
-+      dprintf("Welcome to SSDK Shell version: %s, at %s", ver, date);
++      dprintf("Welcome to SSDK Shell version: %s, at %s\n", ver, date);
  }
  
  /* Dummy function to avoid linker complaints */
