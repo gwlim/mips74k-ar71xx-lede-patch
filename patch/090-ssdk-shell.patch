@@ -70,7 +70,7 @@
  cmd_print_error(sw_error_t rtn)
  {
 -    dprintf("\n%s\n\n", err_info[abs(rtn)]);
-+      dprintf("%s", err_info[abs(rtn)]);
++      dprintf("%s\n", err_info[abs(rtn)]);
  }
  
  void
@@ -79,7 +79,7 @@
                  else
                  {
 -                    dprintf("\n Error, not define output print function!");
-+		      dprintf("Error, output print function not define!");
++		      dprintf("Error, output print function not defined\n");
                  }
              }
  
@@ -97,7 +97,7 @@
      if (!strcasecmp(tmp_str[cmd_nr], "help"))
      {
 -        dprintf("input ? get help\n\n");
-+	  dprintf("Enter ? for help");
++	  dprintf("Enter ? for help\n");
          return NULL;
      }
  
@@ -129,7 +129,7 @@
      else
      {
 -        dprintf("\n SSDK Init Fail! RV[%d]", rv);
-+	  dprintf("SSDK Init Fail! RV[%d]", rv);
++	  dprintf("SSDK Init Fail! RV[%d]\n", rv);
      }
  
      if (flag == 0)
@@ -162,13 +162,13 @@
          if(!strncmp(line, "echo", 4))
          {
 -            dprintf("%s\n", line+strlen("echo "));
-+	      dprintf("%s", line+strlen("echo "));
++	      dprintf("%s\n", line+strlen("echo "));
              continue;
          }
          else
          {
 -            dprintf("%s\n", line);
-+	      dprintf("%s", line);
++	      dprintf("%s\n", line);
          }
          cmd_run_one(line);
      }
@@ -177,7 +177,7 @@
          }
  
 -        sprintf(cmd_str, "%s %s %s", argv[1], argv[2], argv[3]);
-+	  sprintf(cmd_str, "%s %s %s", argv[1], argv[2], argv[3]);
++	  sprintf(cmd_str, "%s %s %s\n", argv[1], argv[2], argv[3]);
          cmd_run_batch(cmd_str);
  
      }
