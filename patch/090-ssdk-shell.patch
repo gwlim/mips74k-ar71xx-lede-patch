@@ -115,7 +115,7 @@
          cmd_print_error(rtn);
      else
 -        dprintf("\noperate done.\n\n");
-+
++	 dprintf("\n");
  
      return 0;
  }
