@@ -1,5 +1,5 @@
 diff --git a/target/linux/generic/config-4.4 b/target/linux/generic/config-4.4
-index 4711fd7..f167c6d 100644
+index 4711fd7..b87571c 100644
 --- a/target/linux/generic/config-4.4
 +++ b/target/linux/generic/config-4.4
 @@ -591,10 +591,10 @@ CONFIG_CARDBUS=y
@@ -279,16 +279,17 @@ index 4711fd7..f167c6d 100644
  # CONFIG_USE_OF is not set
  # CONFIG_UTS_NS is not set
  # CONFIG_UWB is not set
-@@ -4607,6 +4617,8 @@ CONFIG_USB_VIDEO_CLASS_INPUT_EVDEV=y
+@@ -4607,6 +4617,9 @@ CONFIG_USB_VIDEO_CLASS_INPUT_EVDEV=y
  # CONFIG_VFAT_FS is not set
  # CONFIG_VGASTATE is not set
  # CONFIG_VGA_ARB is not set
-+# CONFIG_VGA_ARB_MAX_GPUS=16
++CONFIG_VGA_ARB_MAX_GPUS=16
 +CONFIG_VGA_CONSOLE=y
++# CONFIG_VGACON_SOFT_SCROLLBACK is not set
  # CONFIG_VGA_SWITCHEROO is not set
  # CONFIG_VHOST_CROSS_ENDIAN_LEGACY is not set
  # CONFIG_VHOST_NET is not seta
-@@ -4717,6 +4729,7 @@ CONFIG_VMSPLIT_3G=y
+@@ -4717,6 +4730,7 @@ CONFIG_VMSPLIT_3G=y
  # CONFIG_VORTEX is not set
  # CONFIG_VSOCKETS is not set
  # CONFIG_VT is not set
@@ -296,7 +297,7 @@ index 4711fd7..f167c6d 100644
  # CONFIG_VT6655 is not set
  # CONFIG_VT6656 is not set
  # CONFIG_VXFS_FS is not set
-@@ -4771,7 +4784,7 @@ CONFIG_WLAN=y
+@@ -4771,7 +4785,7 @@ CONFIG_WLAN=y
  # CONFIG_WLCORE is not set
  # CONFIG_WL_MEDIATEK is not set
  CONFIG_WL_TI=y
