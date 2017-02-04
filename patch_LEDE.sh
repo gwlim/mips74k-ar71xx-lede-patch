@@ -4,11 +4,15 @@ echo Add QCA Repo
 wget https://source.codeaurora.org/quic/qsdk/oss/system/openwrt/plain/include/local-development.mk -P ./include/
 sed -i 's|$(TOPDIR)/qca/src/$(PKG_NAME)|$(TOPDIR)/package/ssdk/$(PKG_NAME)/src|g' ./include/local-development.mk
 echo 'src-git ssdk https://source.codeaurora.org/quic/qsdk/oss/system/feeds/ssdk.git' >> ./feeds.conf.default
+# echo 'src-git nsshost https://source.codeaurora.org/quic/qsdk/oss/system/feeds/nss-host.git' >> ./feeds.conf.default
 ./scripts/feeds update -a
 echo Clone QCA SRC
 git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-ssdk.git ./feeds/ssdk/qca-ssdk/src
 git clone https://source.codeaurora.org/quic/qsdk/oss/ssdk-shell.git ./feeds/ssdk/qca-ssdk-shell/src
+# git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-rfs ./feeds/nsshost/qca-rfs/src
 mv ./feeds/ssdk ./package/
+#mkdir -p ./package/nsshost/qca-rfs/
+#mv ./feeds/nsshost/qca-rfs/ ./package/nsshost
 sed -i 's|+kmod-ipt-extra +kmod-ipt-filter +kmod-ipv6 +TARGET_ipq806x:kmod-qca-rfs +kmod-ppp|+kmod-ipt-extra +kmod-ipt-filter +TARGET_ipq806x:kmod-qca-rfs +kmod-ppp|g' ./package/ssdk/qca-ssdk/Makefile
 ./scripts/feeds install -a
 echo Remove Support for PPPOA
@@ -43,8 +47,8 @@ do
   java -jar yuicompressor-2.4.8.jar -o "$file-min.css" "$file"
   mv -b "$file-min.css" "$file"
 done
-sed -i 's|-O2 -fno-pic -pipe -mabi=32 -march=mips32r2|-Os -fno-pic -pipe -mabi=32 -march=74kc|g' ./package/ssdk/qca-ssdk/src/make/linux_opt.mk
-sed -i 's|-O2 -fno-pic -pipe -mabi=32 -march=mips32r2|-Os -fno-pic -pipe -mabi=32 -march=74kc|g' ./package/ssdk/qca-ssdk-shell/src/make/linux_opt.mk
+sed -i 's|-O2 -fno-pic -pipe -mabi=32 -march=mips32r2|$(TARGET_CFLAGS)|g' ./package/ssdk/qca-ssdk/src/make/linux_opt.mk
+sed -i 's|-O2 -fno-pic -pipe -mabi=32 -march=mips32r2|$(TARGET_CFLAGS)|g' ./package/ssdk/qca-ssdk-shell/src/make/linux_opt.mk
 #for file in $( find $directory -name '*.htm' )
 #do
 #  echo Minifying $file
