@@ -4,10 +4,12 @@ echo Add QCA Repo
 wget https://source.codeaurora.org/quic/qsdk/oss/system/openwrt/plain/include/local-development.mk -P ./include/
 sed -i 's|$(TOPDIR)/qca/src/$(PKG_NAME)|$(TOPDIR)/package/ssdk/$(PKG_NAME)/src|g' ./include/local-development.mk
 echo 'src-git ssdk https://source.codeaurora.org/quic/qsdk/oss/system/feeds/ssdk.git' >> ./feeds.conf.default
+echo 'src-git nsshost https://source.codeaurora.org/quic/qsdk/oss/system/feeds/nss-host.git' >> ./feeds.conf.default
 ./scripts/feeds update -a
 echo Clone QCA SRC
 git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-ssdk.git ./feeds/ssdk/qca-ssdk/src
 git clone https://source.codeaurora.org/quic/qsdk/oss/ssdk-shell.git ./feeds/ssdk/qca-ssdk-shell/src
+git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-rfs ./feeds/ssdk/qca-rfs/src
 mv ./feeds/ssdk ./package/
 sed -i 's|+kmod-ipt-extra +kmod-ipt-filter +kmod-ipv6 +TARGET_ipq806x:kmod-qca-rfs +kmod-ppp|+kmod-ipt-extra +kmod-ipt-filter +TARGET_ipq806x:kmod-qca-rfs +kmod-ppp|g' ./package/ssdk/qca-ssdk/Makefile
 ./scripts/feeds install -a
