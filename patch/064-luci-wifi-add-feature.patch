@@ -1,6 +1,6 @@
 --- a/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_network/wifi.lua
 +++ b/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_network/wifi.lua
-@@ -232,8 +232,24 @@ if hwtype == "mac80211" then
+@@ -243,8 +243,24 @@ if hwtype == "mac80211" then
  		end
  	end
  
@@ -25,7 +25,7 @@
  end
  
  
-@@ -478,6 +494,21 @@ if hwtype == "mac80211" then
+@@ -521,6 +537,21 @@ if hwtype == "mac80211" then
  	
  	ifname = s:taboption("advanced", Value, "ifname", translate("Interface name"), translate("Override default interface name"))
  	ifname.optional = true
@@ -45,6 +45,5 @@
 +	disassoc_low_ack.default = disassoc_low_ack.enabled
 +
  end
- 
  
  
