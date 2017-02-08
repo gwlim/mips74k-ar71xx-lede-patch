@@ -16,27 +16,27 @@ index 11cce03..b976bdc 100644
  config BUSYBOX_DEFAULT_ADDGROUP
  	bool
 -	default n
-+	default y
++	default n
  config BUSYBOX_DEFAULT_FEATURE_ADDGROUP_LONG_OPTIONS
  	bool
 -	default n
-+	default y
++	default n
  config BUSYBOX_DEFAULT_FEATURE_ADDUSER_TO_GROUP
  	bool
 -	default n
-+	default y
++	default n
  config BUSYBOX_DEFAULT_ADDUSER
  	bool
 -	default n
-+	default y
++	default n
  config BUSYBOX_DEFAULT_FEATURE_ADDUSER_LONG_OPTIONS
  	bool
 -	default n
-+	default y
++	default n
  config BUSYBOX_DEFAULT_FEATURE_CHECK_NAMES
  	bool
 -	default n
-+	default y
++	default n
  config BUSYBOX_DEFAULT_LAST_ID
  	int
  	default 0
@@ -45,15 +45,15 @@ index 11cce03..b976bdc 100644
  config BUSYBOX_DEFAULT_FDISK
  	bool
 -	default n
-+	default y
++	default n
  config BUSYBOX_DEFAULT_FDISK_SUPPORT_LARGE_DISKS
  	bool
 -	default n
-+	default y
++	default n
  config BUSYBOX_DEFAULT_FEATURE_FDISK_WRITABLE
  	bool
 -	default n
-+	default y
++	default n
  config BUSYBOX_DEFAULT_FEATURE_AIX_LABEL
  	bool
  	default n
@@ -62,7 +62,7 @@ index 11cce03..b976bdc 100644
  config BUSYBOX_DEFAULT_FEATURE_GPT_LABEL
  	bool
 -	default n
-+	default y
++	default n
  config BUSYBOX_DEFAULT_FEATURE_FDISK_ADVANCED
  	bool
  	default n
@@ -71,7 +71,7 @@ index 11cce03..b976bdc 100644
  config BUSYBOX_DEFAULT_FEATURE_TRACEROUTE_USE_ICMP
  	bool
 -	default n
-+	default y
++	default n
  config BUSYBOX_DEFAULT_TUNCTL
  	bool
  	default n
@@ -80,7 +80,7 @@ index 11cce03..b976bdc 100644
  config BUSYBOX_DEFAULT_SENDMAIL
  	bool
 -	default n
-+	default y
++	default n
  config BUSYBOX_DEFAULT_IOSTAT
  	bool
  	default n
@@ -89,7 +89,16 @@ index 11cce03..b976bdc 100644
  config BUSYBOX_DEFAULT_RENICE
  	bool
 -	default n
-+	default y
++	default n
  config BUSYBOX_DEFAULT_BB_SYSCTL
  	bool
  	default y
+@@ -2664,7 +2664,7 @@ config BUSYBOX_DEFAULT_ASH_MAIL
+ 	default n
+ config BUSYBOX_DEFAULT_ASH_OPTIMIZE_FOR_SIZE
+ 	bool
+-	default n
++	default y
+ config BUSYBOX_DEFAULT_ASH_RANDOM_SUPPORT
+ 	bool
+ 	default n
