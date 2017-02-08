@@ -1,7 +1,25 @@
 diff --git a/target/linux/generic/config-4.4 b/target/linux/generic/config-4.4
-index 4711fd7..9149f9d 100644
+index 4711fd7..3c58d54 100644
 --- a/target/linux/generic/config-4.4
 +++ b/target/linux/generic/config-4.4
+@@ -101,7 +101,7 @@ CONFIG_AIO=y
+ # CONFIG_AK8975 is not set
+ # CONFIG_AL3320A is not set
+ # CONFIG_ALIM7101_WDT is not set
+-CONFIG_ALLOW_DEV_COREDUMP=y
++# CONFIG_ALLOW_DEV_COREDUMP is not set
+ # CONFIG_ALTERA_MBOX is not set
+ # CONFIG_ALTERA_STAPL is not set
+ # CONFIG_ALTERA_TSE is not set
+@@ -561,7 +561,7 @@ CONFIG_BT_HCIUART_H4=y
+ # CONFIG_BT_RFCOMM is not set
+ CONFIG_BT_RFCOMM_TTY=y
+ # CONFIG_BT_SELFTEST is not set
+-CONFIG_BUG=y
++# CONFIG_BUG is not set
+ CONFIG_BUILDTIME_EXTABLE_SORT=y
+ # CONFIG_BUILD_BIN2C is not set
+ # CONFIG_C2PORT is not set
 @@ -591,10 +591,10 @@ CONFIG_CARDBUS=y
  # CONFIG_CB710_CORE is not set
  # CONFIG_CC10001_ADC is not set
@@ -259,6 +277,15 @@ index 4711fd7..9149f9d 100644
  # CONFIG_NF_TABLES is not set
  # CONFIG_NF_TABLES_NETDEV is not set
  # CONFIG_NI65 is not set
+@@ -2914,7 +2922,7 @@ CONFIG_PARTITION_ADVANCED=y
+ # CONFIG_PCI_MSI is not set
+ # CONFIG_PCI_PASID is not set
+ # CONFIG_PCI_PRI is not set
+-CONFIG_PCI_QUIRKS=y
++# CONFIG_PCI_QUIRKS is not set
+ # CONFIG_PCI_REALLOC_ENABLE_AUTO is not set
+ # CONFIG_PCI_STUB is not set
+ CONFIG_PCI_SYSCALL=y
 @@ -3104,7 +3112,7 @@ CONFIG_RCU_FANOUT_LEAF=16
  CONFIG_RCU_KTHREAD_PRIO=0
  # CONFIG_RCU_NOCB_CPU is not set
