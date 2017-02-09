@@ -1,7 +1,16 @@
 diff --git a/target/linux/generic/config-4.4 b/target/linux/generic/config-4.4
-index 4711fd7..9149f9d 100644
+index 4711fd7..ad6206a 100644
 --- a/target/linux/generic/config-4.4
 +++ b/target/linux/generic/config-4.4
+@@ -93,7 +93,7 @@ CONFIG_AEABI=y
+ # CONFIG_AHCI_IMX is not set
+ # CONFIG_AHCI_MVEBU is not set
+ # CONFIG_AHCI_QORIQ is not set
+-CONFIG_AIO=y
++# CONFIG_AIO is not set
+ # CONFIG_AIRO is not set
+ # CONFIG_AIRO_CS is not set
+ # CONFIG_AIX_PARTITION is not set
 @@ -591,10 +591,10 @@ CONFIG_CARDBUS=y
  # CONFIG_CB710_CORE is not set
  # CONFIG_CC10001_ADC is not set
