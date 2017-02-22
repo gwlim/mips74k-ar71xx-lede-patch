@@ -15,11 +15,11 @@ How to use
 * Install Java Runtime
 * Clone the LEDE Repository
 
-    git clone https://github.com/lede-project/source.git lede --depth 1
+    git clone -b lede-17.01 https://github.com/lede-project/source.git lede
 
 Clone this Repository and copy into the LEDE repository
 
-    git clone https://github.com/gwlim/mips74k-lede-patch.git temp --depth 1; mv temp/* lede/; rm -rf temp
+    git clone -b lede-17.01 https://github.com/gwlim/mips74k-lede-patch.git temp; mv temp/* lede/; rm -rf temp
 
 Change directory into the LEDE Repository
 
@@ -29,7 +29,7 @@ Run the script
 
 ./patch_LEDE.sh
 
-Make Menuconfig and select the Target Profile TP-LINK TL-WDR3500/3600/4300/4310/MW4350R (all the packages and config is inside except build target
+Make Menuconfig Default Target is TL-WDR4300 (all the packages and config is inside)
 
     make menuconfig
 
