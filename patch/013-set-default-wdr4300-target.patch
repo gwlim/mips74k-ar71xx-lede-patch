@@ -1,11 +1,12 @@
 diff --git a/scripts/target-metadata.pl b/scripts/target-metadata.pl
-index 7f7dc6d..6e0e3aa 100755
+index 31de3c7..f7c82c5 100755
 --- a/scripts/target-metadata.pl
 +++ b/scripts/target-metadata.pl
-@@ -203,6 +203,7 @@ endchoice
+@@ -203,7 +203,7 @@ endchoice
  
  choice
  	prompt "Target Profile"
+-	default TARGET_MULTI_PROFILE if BUILDBOT
 +	default TARGET_ar71xx_generic_DEVICE_tl-wdr4300-v1
  
  EOF
