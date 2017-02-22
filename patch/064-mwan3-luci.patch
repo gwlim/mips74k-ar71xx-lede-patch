@@ -1,6 +1,6 @@
---- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_diagnostics.htm	2014-10-06 20:57:51.000000000 +0800
-+++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_diagnostics.htm	2014-10-06 21:03:45.339237584 +0800
-@@ -92,12 +92,6 @@
+--- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_diagnostics.htm	2017-02-22 23:50:19.817546768 +0800
++++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_diagnostics.htmadvanced_diagnostics.htm	2017-02-22 23:51:12.380685082 +0800
+@@ -93,12 +93,6 @@
  </div>
  
  <style type="text/css">
@@ -13,9 +13,9 @@
    #mwan_diagnostics {
  	background-color: #FFFFFF;
  	border: 1px dotted #555555;
---- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_hotplugscript.htm	2014-10-06 20:57:51.000000000 +0800
-+++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_hotplugscript.htm	2014-10-06 21:04:06.917435722 +0800
-@@ -7,12 +7,6 @@
+--- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_hotplugscript.htm	2017-02-22 23:50:19.817546768 +0800
++++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_diagnostics.htmadvanced_hotplugscript.htm	2017-02-22 23:51:12.380685082 +0800
+@@ -8,12 +8,6 @@
  </ul>
  
  <style type="text/css">
@@ -28,9 +28,9 @@
    .cbi-section-node {
  	margin-top: 20px;
    }
---- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_mwanconfig.htm	2014-10-06 20:57:51.000000000 +0800
-+++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_mwanconfig.htm	2014-10-06 21:04:39.828738048 +0800
-@@ -7,12 +7,6 @@
+--- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_mwanconfig.htm	2017-02-22 23:50:19.817546768 +0800
++++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_diagnostics.htmadvanced_mwanconfig.htm	2017-02-22 23:51:12.380685082 +0800
+@@ -8,12 +8,6 @@
  </ul>
  
  <style type="text/css">
@@ -43,9 +43,9 @@
    .cbi-section-node {
  	margin-top: 20px;
    }
---- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_networkconfig.htm	2014-10-06 20:57:51.000000000 +0800
-+++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_networkconfig.htm	2014-10-06 21:05:25.279155805 +0800
-@@ -7,12 +7,6 @@
+--- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_networkconfig.htm	2017-02-22 23:50:19.817546768 +0800
++++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_diagnostics.htmadvanced_networkconfig.htm	2017-02-22 23:51:12.380685082 +0800
+@@ -8,12 +8,6 @@
  </ul>
  
  <style type="text/css">
@@ -58,9 +58,9 @@
    .cbi-section-node {
  	margin-top: 20px;
    }
---- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_troubleshooting.htm	2014-10-06 20:57:51.000000000 +0800
-+++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_troubleshooting.htm	2014-10-06 21:05:47.253357883 +0800
-@@ -48,12 +48,6 @@
+--- ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_troubleshooting.htm	2017-02-22 23:50:19.817546768 +0800
++++ ./feeds/packages/net/mwan3-luci/files/usr/lib/lua/luci/view/mwan/advanced_diagnostics.htmadvanced_troubleshooting.htm	2017-02-22 23:51:12.380685082 +0800
+@@ -51,12 +51,6 @@
  </div>
  
  <style type="text/css">

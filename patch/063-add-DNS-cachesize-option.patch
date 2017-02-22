@@ -34,15 +34,3 @@
  s:taboption("tftp", Flag, "enable_tftp",
  	translate("Enable TFTP server")).optional = true
 
-diff --git a/package/network/services/dnsmasq/files/dnsmasq.init b/package/network/services/dnsmasq/files/dnsmasq.init
-index 1b42cff..59ebcc5 100644
---- a/package/network/services/dnsmasq/files/dnsmasq.init
-+++ b/package/network/services/dnsmasq/files/dnsmasq.init
-@@ -121,6 +121,7 @@ dnsmasq() {
- 	append_bool "$cfg" nohosts "--no-hosts"
- 	append_bool "$cfg" nonegcache "--no-negcache"
- 	append_bool "$cfg" strictorder "--strict-order"
-+	append_bool "$cfg" allservers "--all-servers"
- 	append_bool "$cfg" logqueries "--log-queries=extra"
- 	append_bool "$cfg" noresolv "--no-resolv"
- 	append_bool "$cfg" localise_queries "--localise-queries"

@@ -15,7 +15,7 @@ How to use
 * Install Java Runtime
 * Clone the LEDE Repository
 
-    git clone https://github.com/lede-project/source.git lede --depth 1
+    git clone https://github.com/lede-project/source.git lede
 
 Clone this Repository and copy into the LEDE repository
 
@@ -29,7 +29,7 @@ Run the script
 
 ./patch_LEDE.sh
 
-Make Menuconfig and select the Target Profile the Default Target is TL-WDR4300 (all the packages and config is inside)
+Make Menuconfig Default Target Profile is TL-WDR4300 (all the packages and config is inside)
 
     make menuconfig
 
