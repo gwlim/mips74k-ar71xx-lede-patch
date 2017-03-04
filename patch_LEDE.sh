@@ -80,3 +80,4 @@ sed -i 's|-mlong-calls|-mno-long-calls|g' ./package/ssdk/qca-ssdk/src/make/linux
 make defconfig
 rm .config
 make defconfig
+sed '$d' feeds.conf.default
