@@ -8,7 +8,7 @@ index 4341a9a..324d304 100644
  FEATURES:=
 -CPU_TYPE:=24kc
 +CPU_TYPE:=24kc
-+CPU_SUBTYPE:=dsp2
++CPU_SUBTYPE:=
  SUBTARGETS:=generic nand mikrotik
  
  KERNEL_PATCHVER:=4.4
