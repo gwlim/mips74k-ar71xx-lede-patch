@@ -11,7 +11,7 @@ git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-ssdk.git ./feeds/
 git clone https://source.codeaurora.org/quic/qsdk/oss/ssdk-shell.git ./feeds/ssdk/qca-ssdk-shell/src
 # git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-rfs ./feeds/nsshost/qca-rfs/src
 mv ./feeds/ssdk ./package/
-sed '$d' feeds.conf.default
+sed -i '$d' feeds.conf.default
 #mkdir -p ./package/nsshost/qca-rfs/
 #mv ./feeds/nsshost/qca-rfs/ ./package/nsshost
 sed -i 's|+kmod-ipt-extra +kmod-ipt-filter +kmod-ipv6 |+kmod-ipt-extra +kmod-ipt-filter |g' ./package/ssdk/qca-ssdk/Makefile
