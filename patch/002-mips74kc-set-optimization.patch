@@ -7,7 +7,7 @@ index 4341a9a..324d304 100644
  BOARDNAME:=Atheros AR7xxx/AR9xxx
  FEATURES:=
 -CPU_TYPE:=24kc
-+CPU_TYPE:=74kc
++CPU_TYPE:=24kc
 +CPU_SUBTYPE:=dsp2
  SUBTARGETS:=generic nand mikrotik
  
