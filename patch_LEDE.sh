@@ -48,8 +48,8 @@ do
   java -jar yuicompressor-2.4.8.jar -o "$file-min.css" "$file"
   mv -b "$file-min.css" "$file"
 done
-sed -i 's|-O2 -fno-pic -pipe -mabi=32 -march=mips32r2|-Os -fno-pic -pipe -mabi=32 -march=74kc|g' ./package/ssdk/qca-ssdk/src/make/linux_opt.mk ./package/ssdk/qca-ssdk/src/config ./package/ssdk/qca-ssdk-shell/src/make/linux_opt.mk ./package/ssdk/qca-ssdk-shell/src/config
-sed -i 's|-mlong-calls|-mno-long-calls|g' ./package/ssdk/qca-ssdk/src/make/linux_opt.mk ./package/ssdk/qca-ssdk/src/config ./package/ssdk/qca-ssdk-shell/src/make/linux_opt.mk ./package/ssdk/qca-ssdk-shell/src/config
+sed -i 's|-O2 -fno-pic -pipe -mabi=32 -march=mips32r2|-O2 -fno-pic -pipe -mabi=32 -march=74kc|g' ./package/ssdk/qca-ssdk/src/make/linux_opt.mk ./package/ssdk/qca-ssdk/src/config ./package/ssdk/qca-ssdk-shell/src/make/linux_opt.mk ./package/ssdk/qca-ssdk-shell/src/config
+sed -i 's|-mlong-calls|-mno-long-calls -ffunction-sections -fdata-sections -mno-mips16 -mno-interlink-compressed -msym32 -mframe-header-opt -fno-caller-saves -fno-plt -DNDEBUG|g' ./package/ssdk/qca-ssdk/src/make/linux_opt.mk ./package/ssdk/qca-ssdk/src/config ./package/ssdk/qca-ssdk-shell/src/make/linux_opt.mk ./package/ssdk/qca-ssdk-shell/src/config
 #for file in $( find $directory -name '*.htm' )
 #do
 #  echo Minifying $file
