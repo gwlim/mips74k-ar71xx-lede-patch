@@ -2,6 +2,7 @@
 set -e
 echo Add QCA Repo
 wget https://source.codeaurora.org/quic/qsdk/oss/system/openwrt/plain/include/local-development.mk -P ./include/
+sed -i 's|git describe --dirty|git describe|g' ./include/local-development.mk
 sed -i 's|$(TOPDIR)/qca/src/$(PKG_NAME)|$(TOPDIR)/package/ssdk/$(PKG_NAME)/src|g' ./include/local-development.mk
 echo 'src-git ssdk https://source.codeaurora.org/quic/qsdk/oss/system/feeds/ssdk.git' >> ./feeds.conf.default
 # echo 'src-git nsshost https://source.codeaurora.org/quic/qsdk/oss/system/feeds/nss-host.git' >> ./feeds.conf.default
