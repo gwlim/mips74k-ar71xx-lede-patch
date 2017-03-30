@@ -1,7 +1,25 @@
 diff --git a/config/Config-kernel.in b/config/Config-kernel.in
-index 4c191f0..2a37936 100644
+index a4c46f5..0596124 100644
 --- a/config/Config-kernel.in
 +++ b/config/Config-kernel.in
+@@ -6,7 +6,7 @@
+ 
+ config KERNEL_BUILD_USER
+ 	string "Custom Kernel Build User Name"
+-	default ""
++	default "gwlim"
+ 	help
+ 	  Sets the Kernel build user string, which for example will be returned
+ 	  by 'uname -a' on running systems.
+@@ -14,7 +14,7 @@ config KERNEL_BUILD_USER
+ 
+ config KERNEL_BUILD_DOMAIN
+ 	string "Custom Kernel Build Domain Name"
+-	default ""
++	default "lede-project.org"
+ 	help
+ 	  Sets the Kernel build domain string, which for example will be
+ 	  returned by 'uname -a' on running systems.
 @@ -27,7 +27,7 @@ config KERNEL_PRINTK
  config KERNEL_CRASHLOG
  	bool "Crash logging"
@@ -45,9 +63,9 @@ index 4c191f0..2a37936 100644
 -	default y
 +	default n
  
- config KERNEL_COREDUMP
- 	bool
-@@ -196,7 +196,7 @@ config KERNEL_COREDUMP
+ config KERNEL_DEBUG_PINCTRL
+ 	bool "Compile the kernel with pinctrl debugging"
+@@ -204,7 +204,7 @@ config KERNEL_COREDUMP
  config KERNEL_ELF_CORE
  	bool "Enable process core dump support"
  	select KERNEL_COREDUMP
