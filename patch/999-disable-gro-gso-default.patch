@@ -1,14 +1,16 @@
 --- /dev/null	2017-05-31 19:11:25.769633897 +0800
-+++ ./target/linux/generic/patches-4.4/999-disable-gro-gso-default.patch	2017-05-31 19:41:26.379349737 +0800
-@@ -0,0 +1,11 @@
-+--- a/include/linux/netdev_features.h
-++++ b/include/linux/netdev_features.h
-+@@ -177,7 +177,7 @@ enum {
-+ #define NETIF_F_UPPER_DISABLES	NETIF_F_LRO
++++ ./target/linux/generic/patches-4.4/999-disable-gro-gso-default.patch	2017-05-31 20:44:54.210769624 +0800
+@@ -0,0 +1,13 @@
++--- a/net/core/dev.c
+++++ b/net/core/dev.c
++@@ -6770,8 +6770,8 @@ int register_netdevice(struct net_device
++ 	/* Transfer changeable features to wanted_features and enable
++ 	 * software offloads (GSO and GRO).
++ 	 */
++-	dev->hw_features |= NETIF_F_SOFT_FEATURES;
++-	dev->features |= NETIF_F_SOFT_FEATURES;
+++	//dev->hw_features |= NETIF_F_SOFT_FEATURES;
+++	//dev->features |= NETIF_F_SOFT_FEATURES;
++ 	dev->wanted_features = dev->features & dev->hw_features;
 + 
-+ /* changeable features with no special hardware requirements */
-+-#define NETIF_F_SOFT_FEATURES	(NETIF_F_GSO | NETIF_F_GRO)
-++#define NETIF_F_SOFT_FEATURES	
-+ 
-+ #define NETIF_F_VLAN_FEATURES	(NETIF_F_HW_VLAN_CTAG_FILTER | \
-+ 				 NETIF_F_HW_VLAN_CTAG_RX | \
++ 	if (!(dev->flags & IFF_LOOPBACK)) {
