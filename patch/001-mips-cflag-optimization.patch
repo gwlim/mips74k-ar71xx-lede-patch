@@ -1,8 +1,16 @@
 diff --git a/include/target.mk b/include/target.mk
-index 3099448..ec126a6 100644
+index 3099448..cc9c546 100644
 --- a/include/target.mk
 +++ b/include/target.mk
-@@ -162,11 +162,14 @@ ifeq ($(DUMP),1)
+@@ -155,18 +155,21 @@ LINUX_RECONF_DIFF = $(call __linux_confcmd,$(filter-out $(LINUX_RECONFIG_TARGET)
+ ifeq ($(DUMP),1)
+   BuildTarget=$(BuildTargets/DumpCurrent)
+ 
+-  CPU_CFLAGS = -Os -pipe
++  CPU_CFLAGS = -O2 -pipe
+   ifneq ($(findstring mips,$(ARCH)),)
+     ifneq ($(findstring mips64,$(ARCH)),)
+       CPU_TYPE ?= mips64
      else
        CPU_TYPE ?= mips32
      endif
