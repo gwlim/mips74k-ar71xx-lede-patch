@@ -188,7 +188,7 @@
 + 
 + SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
 +-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -I. -DUCI_PREFIX="${CMAKE_INSTALL_PREFIX}")
-++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -I. -DUCI_PREFIX="${CMAKE_INSTALL_PREFIX}")
+++ADD_DEFINITIONS(-Wall --std=gnu99 -I. -DUCI_PREFIX="${CMAKE_INSTALL_PREFIX}")
 + 
 + OPTION(UCI_DEBUG "debugging support" OFF)
 + OPTION(UCI_DEBUG_TYPECAST "typecast debugging support" OFF)
@@ -202,7 +202,7 @@
 + ENDIF()
 + 
 +-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -I.. ${LUA_CFLAGS})
-++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -I.. ${LUA_CFLAGS})
+++ADD_DEFINITIONS(-Wall --std=gnu99 -I.. ${LUA_CFLAGS})
 + LINK_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/..)
 + 
 + IF(APPLE)
