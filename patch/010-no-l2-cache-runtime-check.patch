@@ -41,8 +41,8 @@ index 0000000..8a793a4
 ++
 + 
 ++#define cpu_has_wsbh		1
-++#define cpu_has_dsp		1
-++#define cpu_has_dsp2		1
+++
+++
 + #define cpu_has_mipsmt		0
 + #define cpu_has_userlocal	0
 + 
