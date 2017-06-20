@@ -4,14 +4,18 @@ echo Add QCA Repo
 wget https://source.codeaurora.org/quic/qsdk/oss/system/openwrt/plain/include/local-development.mk -P ./include/
 sed -i 's|git describe --dirty|git describe|g' ./include/local-development.mk
 sed -i 's|$(TOPDIR)/qca/src/$(PKG_NAME)|$(TOPDIR)/package/qca/$(PKG_NAME)/src|g' ./include/local-development.mk
-echo 'src-git qca https://source.codeaurora.org/quic/qsdk/oss/system/feeds/ssdk.git' >> ./feeds.conf.default
+echo 'src-git ssdk https://source.codeaurora.org/quic/qsdk/oss/system/feeds/ssdk.git' >> ./feeds.conf.default
+echo 'src-git shortcutfe https://source.codeaurora.org/quic/qsdk/oss/system/feeds/shortcut-fe.git;release/endive_mips' >> ./feeds.conf.default
 # echo 'src-git nsshost https://source.codeaurora.org/quic/qsdk/oss/system/feeds/nss-host.git' >> ./feeds.conf.default
 ./scripts/feeds update -a
 echo Clone QCA SRC
-git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-ssdk.git ./feeds/qca/qca-ssdk/src -b release/endive_mips
-git clone https://source.codeaurora.org/quic/qsdk/oss/ssdk-shell.git ./feeds/qca/qca-ssdk-shell/src -b release/endive_mips
+git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-ssdk.git ./feeds/ssdk/qca-ssdk/src -b release/endive_mips
+git clone https://source.codeaurora.org/quic/qsdk/oss/ssdk-shell.git ./feeds/ssdk/qca-ssdk-shell/src -b release/endive_mips
+git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/shortcut-fe.git ./feeds/shortcutfe/src -b release/endive_mips
 # git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-rfs ./feeds/nsshost/qca-rfs/src
-mv ./feeds/qca ./package/
+mkdir -p ./package/qca/src/
+mv ./feeds/ssdk/* ./package/qca
+mv ./feeds/shortcutfe/* ./package/qca
 sed -i '$d' feeds.conf.default
 #mkdir -p ./package/nsshost/qca-rfs/
 #mv ./feeds/nsshost/qca-rfs/ ./package/nsshost
