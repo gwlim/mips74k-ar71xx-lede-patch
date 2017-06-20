@@ -1,5 +1,5 @@
---- a/package/ssdk/qca-ssdk/src/src/init/ssdk_init.c	2017-03-19 12:33:12.000000000 +0800
-+++ a/package/ssdk/qca-ssdk/src/src/init/ssdk_init.c	2017-03-19 13:08:15.747611054 +0800
+--- a/package/qca/qca-ssdk/src/src/init/ssdk_init.c	2017-03-19 12:33:12.000000000 +0800
++++ a/package/qca/qca-ssdk/src/src/init/ssdk_init.c	2017-03-19 13:08:15.747611054 +0800
 @@ -1861,30 +1861,41 @@ static int miibus_get(void)
  	}
  	#else

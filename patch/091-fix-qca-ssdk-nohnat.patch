@@ -1,5 +1,5 @@
---- a/package/ssdk/qca-ssdk/Makefile	2017-01-26 18:58:05.000000000 +0800
-+++ b/package/ssdk/qca-ssdk/Makefile	2017-01-26 18:58:16.619321495 +0800
+--- a/package/qca/qca-ssdk/Makefile	2017-01-26 18:58:05.000000000 +0800
++++ b/package/qca/qca-ssdk/Makefile	2017-01-26 18:58:16.619321495 +0800
 @@ -31,6 +31,7 @@ endef
  define KernelPackage/qca-ssdk-nohnat
  $(call KernelPackage/qca-ssdk/default-nohnat)
