@@ -11,7 +11,7 @@ echo 'src-git shortcutfe https://source.codeaurora.org/quic/qsdk/oss/system/feed
 echo Clone QCA SRC
 git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-ssdk.git ./feeds/ssdk/qca-ssdk/src -b release/endive_mips
 git clone https://source.codeaurora.org/quic/qsdk/oss/ssdk-shell.git ./feeds/ssdk/qca-ssdk-shell/src -b release/endive_mips
-git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/shortcut-fe.git ./feeds/shortcutfe/src -b release/endive_mips
+git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/shortcut-fe.git ./feeds/shortcutfe/shortcut-fe/src -b release/endive_mips
 mkdir ./feeds/shortcutfe/fast-classifier/src ./feeds/shortcutfe/shortcut-fe/src ./feeds/shortcutfe/simulated-driver/src
 mv ./feeds/shortcutfe/src/fast-classifier/* ./feeds/shortcutfe/fast-classifier/src/
 mv ./feeds/shortcutfe/src/shortcut-fe/* ./feeds/shortcutfe/shortcut-fe/src/
