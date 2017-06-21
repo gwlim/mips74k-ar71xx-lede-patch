@@ -12,8 +12,11 @@ echo Clone QCA SRC
 git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-ssdk.git ./feeds/ssdk/qca-ssdk/src -b release/endive_mips
 git clone https://source.codeaurora.org/quic/qsdk/oss/ssdk-shell.git ./feeds/ssdk/qca-ssdk-shell/src -b release/endive_mips
 git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/shortcut-fe.git ./feeds/shortcutfe/src -b release/endive_mips
+mv ./feeds/shortcutfe/src/fast-classifier/* ./feeds/shortcutfe/fast-classifier/src/
+mv ./feeds/shortcutfe/src/shortcut-fe/* ./feeds/shortcutfe/shortcut-fe/src/
+mv ./feeds/shortcutfe/src/simulated-driver/* ./feeds/shortcutfe/simulated-driver/src/
 # git clone https://source.codeaurora.org/quic/qsdk/oss/lklm/qca-rfs ./feeds/nsshost/qca-rfs/src
-mkdir -p ./package/qca/src/
+mkdir -p ./package/qca/
 mv ./feeds/ssdk/* ./package/qca
 mv ./feeds/shortcutfe/* ./package/qca
 sed -i '$d' feeds.conf.default
