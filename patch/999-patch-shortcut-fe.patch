@@ -38,3 +38,14 @@
  include $(INCLUDE_DIR)/local-development.mk
  ifeq ($(DUMP)$(PKG_VERSION),)
    PKG_REV:=$(shell git ls-remote $(PKG_SOURCE_URL) $(PKG_BRANCH) | cut -b -7)
+--- ./package/qca/shortcut-fe/Makefile	2017-06-22 20:54:20.550640047 +0800
++++ ./package/qca/shortcut-fe/Makefile	2017-06-22 20:54:12.611616294 +0800
+@@ -57,7 +57,7 @@ define KernelPackage/shortcut-fe-cm
+   SECTION:=kernel
+   CATEGORY:=Kernel modules
+   SUBMENU:=Network Support
+-  DEPENDS:=+kmod-ipt-conntrack +kmod-shortcut-fe
++  DEPENDS:=+kmod-ipt-conntrack +kmod-shortcut-fe +kmod-ipv6
+   TITLE:=Kernel driver for SFE
+   FILES:=$(PKG_BUILD_DIR)/shortcut-fe/shortcut-fe-cm.ko
+   KCONFIG:=CONFIG_NF_CONNTRACK_CHAIN_EVENTS=y
