@@ -15,6 +15,8 @@ git clone https://source.codeaurora.org/quic/qsdk/oss/ssdk-shell.git ./feeds/ssd
 mkdir -p ./package/qca/
 mv ./feeds/ssdk/* ./package/qca
 mv ./feeds/shortcutfe/* ./package/qca
+# Delete the last 2 lines of feed conf because Repositories DO NOT EXIST
+sed -i '$d' feeds.conf.default
 sed -i '$d' feeds.conf.default
 #mkdir -p ./package/nsshost/qca-rfs/
 #mv ./feeds/nsshost/qca-rfs/ ./package/nsshost
