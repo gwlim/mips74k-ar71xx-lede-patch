@@ -7,7 +7,7 @@ index 8a6ab94..2132a96 100644
  
  VERSION_REPO:=$(call qstrip_escape,$(CONFIG_VERSION_REPO))
 -VERSION_REPO:=$(if $(VERSION_REPO),$(VERSION_REPO),http://downloads.lede-project.org/releases/17.01-SNAPSHOT)
-+VERSION_REPO:=$(if $(VERSION_REPO),$(VERSION_REPO),http://downloads.lede-project.org/releases/17.01.0)
++VERSION_REPO:=$(if $(VERSION_REPO),$(VERSION_REPO),http://downloads.lede-project.org/releases/17.01.2)
  
  VERSION_DIST:=$(call qstrip_escape,$(CONFIG_VERSION_DIST))
  VERSION_DIST:=$(if $(VERSION_DIST),$(VERSION_DIST),LEDE)
