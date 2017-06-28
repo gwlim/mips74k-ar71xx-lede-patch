@@ -112,13 +112,13 @@
 + 
 --- /dev/null	2015-12-19 10:32:16.723017304 +0800
 +++ ./package/system/procd/patches/CMakeList.patch	2015-12-19 18:59:13.723715668 +0800
-@@ -0,0 +1,22 @@
+@@ -0,0 +1,11 @@
 +--- a/upgraded/CMakeLists.txt
 ++++ b/upgraded/CMakeLists.txt
-+@@ -1,7 +1,7 @@
-+ cmake_minimum_required(VERSION 2.6)
-+ 
++@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.6)
 + PROJECT(upgraded C)
++ FIND_PATH(ubox_include_dir libubox/uloop.h)
++ INCLUDE_DIRECTORIES(${ubox_include_dir})
 +-ADD_DEFINITIONS(-Os -ggdb -Wall -Werror --std=gnu99 -Wmissing-declarations)
 ++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
 + set(CMAKE_EXE_LINKER_FLAGS "-static -fPIC")
