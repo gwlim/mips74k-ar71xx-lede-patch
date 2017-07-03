@@ -1,0 +1,17 @@
+--- ./feeds/packages/net/wireguard/Makefile	2017-07-03 20:44:39.157208071 +0800
++++ ./feeds/packages/net/wireguard/Makefile	2017-07-03 20:44:32.538196600 +0800
+@@ -11,12 +11,12 @@ include $(INCLUDE_DIR)/kernel.mk
+ 
+ PKG_NAME:=wireguard
+ 
+-PKG_VERSION:=0.0.20170115
++PKG_VERSION:=0.0.20170629
+ PKG_RELEASE:=1
+ 
+ PKG_SOURCE:=WireGuard-$(PKG_VERSION).tar.xz
+ PKG_SOURCE_URL:=https://git.zx2c4.com/WireGuard/snapshot/
+-PKG_MD5SUM:=7e5f9f4699a2d4ace90d0df5d81bf0f67205ee08c45b95e0acc379bedef5ffe8
++PKG_MD5SUM:=51c44624f20eaff96780845214f85491c0c7330598633cd180bb2a6547e5d2b2
+ 
+ PKG_LICENSE:=GPL-2.0
+ PKG_LICENSE_FILES:=COPYING
