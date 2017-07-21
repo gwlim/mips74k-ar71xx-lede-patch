@@ -784,13 +784,13 @@ index 0000000..6aa762a
 ++#endif /* sgidefs.h */
 diff --git a/./toolchain/musl/patches/932-add-mips-memcpy-memset-optimize.patch b/./toolchain/musl/patches/932-add-mips-memcpy-memset-optimize.patch
 new file mode 100644
-index 0000000..346a0c8
+index 0000000..32e6df4
 --- /dev/null
 +++ b/./toolchain/musl/patches/932-add-mips-memcpy-memset-optimize.patch
-@@ -0,0 +1,1309 @@
-+--- /dev/null	2017-07-20 19:24:25.199443521 +0800
-++++ b/src/string/mips/memcpy.S	2017-07-20 19:56:14.000000000 +0800
-+@@ -0,0 +1,872 @@
+@@ -0,0 +1,1313 @@
++--- /dev/null	2017-07-21 19:16:52.719374444 +0800
+++++ b/src/string/mips/memcpy.S	2017-07-21 22:02:31.953862010 +0800
++@@ -0,0 +1,874 @@
 ++/* Copyright (C) 2012-2015 Free Software Foundation, Inc.
 ++   This file is part of the GNU C Library.
 ++
@@ -819,12 +819,14 @@ index 0000000..346a0c8
 ++# include <sys/regdef.h>
 ++# include <sys/asm.h>
 ++# define PREFETCH_LOAD_HINT PREFETCH_HINT_LOAD_STREAMED
+++# define PREFETCH_STORE_HINT PREFETCH_HINT_PREPAREFORSTORE
 ++#elif defined _COMPILING_NEWLIB
 ++# include "machine/asm.h"
 ++# include "machine/regdef.h"
 ++# define PREFETCH_LOAD_HINT PREFETCH_HINT_LOAD_STREAMED
 ++# define PREFETCH_STORE_HINT PREFETCH_HINT_PREPAREFORSTORE
 ++#else
+++# define USE_PREFETCH
 ++# include <sys/fpregdef.h>
 ++# include <sys/regdef.h>
 ++# include <sys/asm.h>
@@ -1663,9 +1665,9 @@ index 0000000..346a0c8
 ++#  endif
 ++# endif
 ++#endif
-+--- /dev/null	2017-07-20 19:24:25.199443521 +0800
-++++ b/src/string/mips/memset.S	2017-07-20 19:56:14.000000000 +0800
-+@@ -0,0 +1,431 @@
++--- /dev/null	2017-07-21 19:16:52.719374444 +0800
+++++ b/src/string/mips/memset.S	2017-07-21 22:03:24.258007485 +0800
++@@ -0,0 +1,433 @@
 ++/* Copyright (C) 2013-2015 Free Software Foundation, Inc.
 ++   This file is part of the GNU C Library.
 ++
@@ -1691,11 +1693,13 @@ index 0000000..346a0c8
 ++# include <sysdep.h>
 ++# include <sys/regdef.h>
 ++# include <sys/asm.h>
-++#elif _COMPILING_NEWLIB
+++# define PREFETCH_STORE_HINT PREFETCH_HINT_PREPAREFORSTORE
+++#elif defined _COMPILING_NEWLIB
 ++# include "machine/asm.h"
 ++# include "machine/regdef.h"
 ++# define PREFETCH_STORE_HINT PREFETCH_HINT_PREPAREFORSTORE
 ++#else
+++#  define USE_PREFETCH
 ++# include <sys/fpregdef.h>
 ++# include <sys/regdef.h>
 ++# include <sys/asm.h>
