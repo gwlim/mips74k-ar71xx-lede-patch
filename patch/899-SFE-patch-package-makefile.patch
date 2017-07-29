@@ -44,7 +44,7 @@
    SECTION:=kernel
    CATEGORY:=Kernel modules
    SUBMENU:=Network Support
--  DEPENDS:=@IPV6 +kmod-ipt-conntrack +kmod-shortcut-fe +kmod-ipv6
+-  DEPENDS:=+kmod-ipt-conntrack +kmod-shortcut-fe +kmod-ipv6
 +  DEPENDS:=@IPV6 +kmod-ipt-conntrack +kmod-shortcut-fe
    TITLE:=Kernel driver for SFE
    FILES:=$(PKG_BUILD_DIR)/shortcut-fe/shortcut-fe-cm.ko
