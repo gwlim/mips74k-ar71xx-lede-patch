@@ -2,15 +2,18 @@ diff --git a/miniupnpd/Makefile b/miniupnpd/Makefile
 index 1841200..aa8c291 100644
 --- a/feeds/routing/miniupnpd/Makefile
 +++ b/feeds/routing/miniupnpd/Makefile
-@@ -19,6 +19,7 @@ PKG_MAINTAINER:=Markus Stenberg <fingon@iki.fi>
+@@ -18,7 +18,10 @@ PKG_HASH:=9677aeccadf73b4bf8bb9d832c32b5da8266b4d58eed888f3fd43d7656405643
+ PKG_MAINTAINER:=Markus Stenberg <fingon@iki.fi>
  PKG_LICENSE:=BSD-3-Clause
  
++PKG_FLAGS:=nonshared
++
  include $(INCLUDE_DIR)/package.mk
 +include $(INCLUDE_DIR)/target.mk
  
  define Package/miniupnpd
    SECTION:=net
-@@ -53,6 +54,12 @@ endef
+@@ -53,6 +56,12 @@ endef
  
  define Build/Prepare
  	$(call Build/Prepare/Default)
