@@ -1,7 +1,7 @@
 diff --git a/miniupnpd/Makefile b/miniupnpd/Makefile
 index 1841200..aa8c291 100644
---- a/miniupnpd/Makefile
-+++ b/miniupnpd/Makefile
+--- a/feeds/routing/miniupnpd/Makefile
++++ b/feeds/routing/miniupnpd/Makefile
 @@ -19,6 +19,7 @@ PKG_MAINTAINER:=Markus Stenberg <fingon@iki.fi>
  PKG_LICENSE:=BSD-3-Clause
  
