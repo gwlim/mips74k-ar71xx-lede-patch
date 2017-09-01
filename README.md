@@ -34,26 +34,22 @@ If you want to enable Fast Path select all the fast path modules in
 
 Kernel Modules > Network Support > 
 
-Select all the 3 modules
+Select
 
 * kmod-fast-classifier
-* kmod-shortcut-fe
-* kmod-shortcut-fe-cm
 
     make menuconfig
 
 Save and make
 
     make V=s
-    
+
 FAQ
 ---
 
-I can't connect to certain websites, what is wrong?
+Cannot install packages with Kernel Dependencies?
 
-* Go to Network > Firewall > General Settings
-
-* Check on MSS Clamping
+Use --nodeps in opkg
 
 
 Where can I download the firmware for my Router?
