@@ -7,7 +7,7 @@ index 566e951..204e420 100644
  	while ((skb = __skb_dequeue(&queue)) != NULL) {
  		skb->protocol = eth_type_trans(skb, dev);
 -		netif_receive_skb(skb);
-+		napi_gro_receive(&ag->napi,skb);
++		netif_receive_skb(skb);
  	}
  
  	DBG("%s: rx finish, curr=%u, dirty=%u, done=%d\n",
