@@ -255,7 +255,7 @@ index 0000000..ddcf7af
 + 
 + 	/* We make a copy of the missed event cache without taking
 + 	 * the lock, thus we may send missed events twice. However,
-+@@ -144,62 +139,35 @@ void nf_ct_deliver_cached_events(struct
++@@ -144,62 +139,34 @@ void nf_ct_deliver_cached_events(struct
 + 	missed = e->missed;
 + 
 + 	if (!((events | missed) & e->ctmask))
@@ -325,6 +325,7 @@ index 0000000..ddcf7af
 +-	BUG_ON(notify != new);
 +-	RCU_INIT_POINTER(net->ct.nf_conntrack_event_cb, NULL);
 +-	mutex_unlock(&nf_ct_ecache_mutex);
++-	/* synchronize_rcu() is called from ctnetlink_exit. */
 ++	return atomic_notifier_chain_unregister(&net->ct.nf_conntrack_chain, nb);
 + }
 + EXPORT_SYMBOL_GPL(nf_conntrack_unregister_notifier);
